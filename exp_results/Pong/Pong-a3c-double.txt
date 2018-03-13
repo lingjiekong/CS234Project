@@ -1,0 +1,1416 @@
+[32m[1205 21:13:12 @logger.py:74][0m Argv: double-train-atari.py --env Pong-v0 --gpu 0
+[32m[1205 21:13:12 @double-train-atari.py:240][0m [Batch-A3C] Train on gpu 0 and infer on gpu 0
+[32m[1205 21:13:13 @param.py:189][0m Use train_log/train-atari-Pong-v0/hyper.txt to set hyperparam: 'learning_rate'.
+[32m[1205 21:13:13 @param.py:189][0m Use train_log/train-atari-Pong-v0/hyper.txt to set hyperparam: 'entropy_beta'.
+[32m[1205 21:13:13 @sesscreate.py:39][0m [5m[31mWRN[0m Some options in custom session config may not work due to TF bugs. See https://github.com/ppwwyyxx/tensorpack/issues/497 for workarounds.
+[32m[1205 21:13:13 @registry.py:121][0m conv0 input: [None, 84, 84, 12]
+[32m[1205 21:13:13 @registry.py:129][0m conv0 output: [None, 84, 84, 32]
+[32m[1205 21:13:13 @registry.py:121][0m pool0 input: [None, 84, 84, 32]
+[32m[1205 21:13:13 @registry.py:129][0m pool0 output: [None, 42, 42, 32]
+[32m[1205 21:13:13 @registry.py:121][0m conv1 input: [None, 42, 42, 32]
+[32m[1205 21:13:13 @registry.py:129][0m conv1 output: [None, 42, 42, 32]
+[32m[1205 21:13:13 @registry.py:121][0m pool1 input: [None, 42, 42, 32]
+[32m[1205 21:13:13 @registry.py:129][0m pool1 output: [None, 21, 21, 32]
+[32m[1205 21:13:13 @registry.py:121][0m conv2 input: [None, 21, 21, 32]
+[32m[1205 21:13:13 @registry.py:129][0m conv2 output: [None, 21, 21, 64]
+[32m[1205 21:13:13 @registry.py:121][0m pool2 input: [None, 21, 21, 64]
+[32m[1205 21:13:13 @registry.py:129][0m pool2 output: [None, 10, 10, 64]
+[32m[1205 21:13:13 @registry.py:121][0m conv3 input: [None, 10, 10, 64]
+[32m[1205 21:13:13 @registry.py:129][0m conv3 output: [None, 10, 10, 64]
+[32m[1205 21:13:13 @registry.py:121][0m fc0 input: [None, 10, 10, 64]
+[32m[1205 21:13:13 @registry.py:129][0m fc0 output: [None, 512]
+[32m[1205 21:13:13 @registry.py:121][0m fc-pi input: [None, 512]
+[32m[1205 21:13:13 @registry.py:129][0m fc-pi output: [None, 6]
+[32m[1205 21:13:13 @registry.py:121][0m fc-v_1 input: [None, 512]
+[32m[1205 21:13:13 @registry.py:129][0m fc-v_1 output: [None, 1]
+[32m[1205 21:13:13 @registry.py:121][0m fc-v_2 input: [None, 512]
+[32m[1205 21:13:13 @registry.py:129][0m fc-v_2 output: [None, 1]
+[32m[1205 21:13:15 @model_utils.py:47][0m [36mModel Parameters: 
+[0mname           shape               dim
+-------------  --------------  -------
+conv0/W:0      [5, 5, 12, 32]     9600
+conv0/b:0      [32]                 32
+conv1/W:0      [5, 5, 32, 32]    25600
+conv1/b:0      [32]                 32
+conv2/W:0      [4, 4, 32, 64]    32768
+conv2/b:0      [64]                 64
+conv3/W:0      [3, 3, 64, 64]    36864
+conv3/b:0      [64]                 64
+fc0/W:0        [6400, 512]     3276800
+fc0/b:0        [512]               512
+prelu/alpha:0  []                    1
+fc-pi/W:0      [512, 6]           3072
+fc-pi/b:0      [6]                   6
+fc-v_1/W:0     [512, 1]            512
+fc-v_1/b:0     [1]                   1
+fc-v_2/W:0     [512, 1]            512
+fc-v_2/b:0     [1]                   1[36m
+Total #vars=17, #param=3386441 (12.92 MB assuming all float32)[0m
+[32m[1205 21:13:15 @base.py:158][0m Setup callbacks graph ...
+[32m[1205 21:13:15 @predict.py:51][0m Building predictor tower 'tower-pred-0' on device /gpu:0 ...
+[32m[1205 21:13:15 @summary.py:34][0m Maintain moving average summary of 28 tensors.
+[32m[1205 21:13:15 @base.py:174][0m Creating the session ...
+[32m[1205 21:13:16 @base.py:182][0m Initializing the session ...
+[32m[1205 21:13:16 @base.py:189][0m Graph Finalized.
+[32m[1205 21:13:16 @concurrency.py:36][0m Starting SimulatorMaster ...
+[32m[1205 21:13:16 @base.py:209][0m Start Epoch 1 ...
+[32m[1205 21:32:00 @base.py:219][0m Epoch 1 (global_step 6000) finished, time:1123.89 sec.
+[32m[1205 21:32:00 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-6000.
+[32m[1205 21:33:03 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0011821
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0023575
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00064072
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0039991
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00049175
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0056315
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00037283
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0081475
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00050194
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0042929
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015956
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.013863
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0015397
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.013637
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.4178e-05
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00096733
+[32m[1205 21:33:03 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0089677
+[32m[1205 21:33:03 @monitor.py:363][0m cost: -0.0077038
+[32m[1205 21:33:03 @monitor.py:363][0m importance: 0.99981
+[32m[1205 21:33:03 @monitor.py:363][0m max_score: -20
+[32m[1205 21:33:03 @monitor.py:363][0m mean_score: -20.98
+[32m[1205 21:33:03 @monitor.py:363][0m policy_loss: -0.16501
+[32m[1205 21:33:03 @monitor.py:363][0m predict_reward_1: -1.4808
+[32m[1205 21:33:03 @monitor.py:363][0m predict_reward_2: -1.4791
+[32m[1205 21:33:03 @monitor.py:363][0m predict_reward_avg: -1.4799
+[32m[1205 21:33:03 @monitor.py:363][0m rms_advantage_1: 0.14473
+[32m[1205 21:33:03 @monitor.py:363][0m rms_advantage_2: 0.14567
+[32m[1205 21:33:03 @monitor.py:363][0m rms_advantage_avg: 0.1452
+[32m[1205 21:33:03 @monitor.py:363][0m value_loss: 1.4461
+[32m[1205 21:33:03 @monitor.py:363][0m xentropy_loss: -226.72
+[32m[1205 21:33:03 @group.py:42][0m Callbacks took 62.509 sec in total. PeriodicTrigger-Evaluator: 62.353sec
+[32m[1205 21:33:03 @base.py:209][0m Start Epoch 2 ...
+[32m[1205 21:51:32 @base.py:219][0m Epoch 2 (global_step 12000) finished, time:1109.03 sec.
+[32m[1205 21:51:32 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-12000.
+[32m[1205 21:53:14 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00095844
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0020586
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00045899
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0033391
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00046834
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0045104
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00029851
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.011778
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00045806
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.004816
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014858
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.015485
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012926
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.013635
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.7942e-05
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.0010675
+[32m[1205 21:53:14 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0059678
+[32m[1205 21:53:14 @monitor.py:363][0m cost: -0.0072943
+[32m[1205 21:53:14 @monitor.py:363][0m importance: 1.0003
+[32m[1205 21:53:14 @monitor.py:363][0m max_score: -14
+[32m[1205 21:53:14 @monitor.py:363][0m mean_score: -17.98
+[32m[1205 21:53:14 @monitor.py:363][0m policy_loss: -0.21867
+[32m[1205 21:53:14 @monitor.py:363][0m predict_reward_1: -0.97189
+[32m[1205 21:53:14 @monitor.py:363][0m predict_reward_2: -0.97778
+[32m[1205 21:53:14 @monitor.py:363][0m predict_reward_avg: -0.97483
+[32m[1205 21:53:14 @monitor.py:363][0m rms_advantage_1: 0.14851
+[32m[1205 21:53:14 @monitor.py:363][0m rms_advantage_2: 0.14752
+[32m[1205 21:53:14 @monitor.py:363][0m rms_advantage_avg: 0.14802
+[32m[1205 21:53:14 @monitor.py:363][0m value_loss: 1.4818
+[32m[1205 21:53:14 @monitor.py:363][0m xentropy_loss: -219.68
+[32m[1205 21:53:14 @group.py:42][0m Callbacks took 102.163 sec in total. PeriodicTrigger-Evaluator: 102.081sec
+[32m[1205 21:53:14 @base.py:209][0m Start Epoch 3 ...
+[32m[1205 22:11:45 @base.py:219][0m Epoch 3 (global_step 18000) finished, time:1111.05 sec.
+[32m[1205 22:11:45 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-18000.
+[32m[1205 22:14:33 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00087021
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0018619
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00034295
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0020434
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00034771
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0027725
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00028699
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0061394
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00039624
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0044651
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011635
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.012272
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013218
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.014521
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.9651e-05
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00098444
+[32m[1205 22:14:33 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.010987
+[32m[1205 22:14:33 @monitor.py:363][0m cost: -0.012162
+[32m[1205 22:14:33 @monitor.py:363][0m importance: 1.0002
+[32m[1205 22:14:33 @monitor.py:363][0m max_score: -4
+[32m[1205 22:14:33 @monitor.py:363][0m mean_score: -13.32
+[32m[1205 22:14:33 @monitor.py:363][0m policy_loss: -0.74771
+[32m[1205 22:14:33 @monitor.py:363][0m predict_reward_1: -0.32671
+[32m[1205 22:14:33 @monitor.py:363][0m predict_reward_2: -0.32813
+[32m[1205 22:14:33 @monitor.py:363][0m predict_reward_avg: -0.32742
+[32m[1205 22:14:33 @monitor.py:363][0m rms_advantage_1: 0.13928
+[32m[1205 22:14:33 @monitor.py:363][0m rms_advantage_2: 0.13923
+[32m[1205 22:14:33 @monitor.py:363][0m rms_advantage_avg: 0.13926
+[32m[1205 22:14:33 @monitor.py:363][0m value_loss: 1.3435
+[32m[1205 22:14:33 @monitor.py:363][0m xentropy_loss: -215.26
+[32m[1205 22:14:33 @group.py:42][0m Callbacks took 168.221 sec in total. PeriodicTrigger-Evaluator: 168.093sec
+[32m[1205 22:14:33 @base.py:209][0m Start Epoch 4 ...
+[32m[1205 22:33:06 @base.py:219][0m Epoch 4 (global_step 24000) finished, time:1113.36 sec.
+[32m[1205 22:33:07 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-24000.
+[32m[1205 22:38:03 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00072629
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0015951
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00022219
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0018651
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00025703
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0018888
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00020907
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0032004
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00031336
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0035904
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.00080753
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0080744
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0010329
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.010525
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.0938e-05
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00068576
+[32m[1205 22:38:03 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0072137
+[32m[1205 22:38:03 @monitor.py:363][0m cost: -0.0075281
+[32m[1205 22:38:03 @monitor.py:363][0m importance: 1.0008
+[32m[1205 22:38:03 @monitor.py:363][0m max_score: 8
+[32m[1205 22:38:03 @monitor.py:363][0m mean_score: -3.94
+[32m[1205 22:38:03 @monitor.py:363][0m policy_loss: 0.22595
+[32m[1205 22:38:03 @monitor.py:363][0m predict_reward_1: -0.13228
+[32m[1205 22:38:03 @monitor.py:363][0m predict_reward_2: -0.13512
+[32m[1205 22:38:03 @monitor.py:363][0m predict_reward_avg: -0.1337
+[32m[1205 22:38:03 @monitor.py:363][0m rms_advantage_1: 0.11749
+[32m[1205 22:38:03 @monitor.py:363][0m rms_advantage_2: 0.11841
+[32m[1205 22:38:03 @monitor.py:363][0m rms_advantage_avg: 0.11795
+[32m[1205 22:38:03 @monitor.py:363][0m value_loss: 0.94865
+[32m[1205 22:38:03 @monitor.py:363][0m xentropy_loss: -213.82
+[32m[1205 22:38:03 @group.py:42][0m Callbacks took 296.918 sec in total. PeriodicTrigger-Evaluator: 296.825sec
+[32m[1205 22:38:03 @base.py:209][0m Start Epoch 5 ...
+[32m[1205 22:56:30 @base.py:219][0m Epoch 5 (global_step 30000) finished, time:1106.72 sec.
+[32m[1205 22:56:30 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-30000.
+[32m[1205 23:04:36 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00085209
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.001751
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00030201
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0019403
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00028275
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0018714
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00022731
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.002665
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00036441
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0032562
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.001066
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0085653
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012652
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0093357
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.1851e-05
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00056258
+[32m[1205 23:04:37 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0072502
+[32m[1205 23:04:37 @monitor.py:363][0m cost: -0.012342
+[32m[1205 23:04:37 @monitor.py:363][0m importance: 1
+[32m[1205 23:04:37 @monitor.py:363][0m max_score: 13
+[32m[1205 23:04:37 @monitor.py:363][0m mean_score: -1.26
+[32m[1205 23:04:37 @monitor.py:363][0m policy_loss: -0.41595
+[32m[1205 23:04:37 @monitor.py:363][0m predict_reward_1: -0.18167
+[32m[1205 23:04:37 @monitor.py:363][0m predict_reward_2: -0.18093
+[32m[1205 23:04:37 @monitor.py:363][0m predict_reward_avg: -0.1813
+[32m[1205 23:04:37 @monitor.py:363][0m rms_advantage_1: 0.11556
+[32m[1205 23:04:37 @monitor.py:363][0m rms_advantage_2: 0.1159
+[32m[1205 23:04:37 @monitor.py:363][0m rms_advantage_avg: 0.11573
+[32m[1205 23:04:37 @monitor.py:363][0m value_loss: 0.94247
+[32m[1205 23:04:37 @monitor.py:363][0m xentropy_loss: -210.63
+[32m[1205 23:04:37 @group.py:42][0m Callbacks took 486.396 sec in total. PeriodicTrigger-Evaluator: 486.263sec
+[32m[1205 23:04:37 @base.py:209][0m Start Epoch 6 ...
+[32m[1205 23:23:03 @base.py:219][0m Epoch 6 (global_step 36000) finished, time:1106.15 sec.
+[32m[1205 23:23:03 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-36000.
+[32m[1205 23:28:18 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00063861
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0013607
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00029142
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0018173
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00031008
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0016466
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00026094
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0024772
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00044605
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0037449
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0013202
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.010611
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0015469
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.011269
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 4.0079e-05
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00060707
+[32m[1205 23:28:18 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.015271
+[32m[1205 23:28:18 @monitor.py:363][0m cost: -0.0052966
+[32m[1205 23:28:18 @monitor.py:363][0m importance: 0.99973
+[32m[1205 23:28:18 @monitor.py:363][0m max_score: 9
+[32m[1205 23:28:18 @monitor.py:363][0m mean_score: -0.02
+[32m[1205 23:28:18 @monitor.py:363][0m policy_loss: 0.24387
+[32m[1205 23:28:18 @monitor.py:363][0m predict_reward_1: -0.1433
+[32m[1205 23:28:18 @monitor.py:363][0m predict_reward_2: -0.14361
+[32m[1205 23:28:18 @monitor.py:363][0m predict_reward_avg: -0.14346
+[32m[1205 23:28:18 @monitor.py:363][0m rms_advantage_1: 0.12576
+[32m[1205 23:28:18 @monitor.py:363][0m rms_advantage_2: 0.12737
+[32m[1205 23:28:18 @monitor.py:363][0m rms_advantage_avg: 0.12656
+[32m[1205 23:28:18 @monitor.py:363][0m value_loss: 1.166
+[32m[1205 23:28:18 @monitor.py:363][0m xentropy_loss: -208.79
+[32m[1205 23:28:18 @group.py:42][0m Callbacks took 315.215 sec in total. PeriodicTrigger-Evaluator: 315.132sec
+[32m[1205 23:28:18 @base.py:209][0m Start Epoch 7 ...
+[32m[1205 23:46:46 @base.py:219][0m Epoch 7 (global_step 42000) finished, time:1108.31 sec.
+[32m[1205 23:46:46 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-42000.
+[32m[1205 23:53:10 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00090324
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0019848
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00034905
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0023761
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00032787
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0020485
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00027673
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0031662
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0004699
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0039137
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0017685
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.013152
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0015502
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.012049
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.9981e-05
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00062212
+[32m[1205 23:53:10 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.016818
+[32m[1205 23:53:10 @monitor.py:363][0m cost: -0.013581
+[32m[1205 23:53:10 @monitor.py:363][0m importance: 1
+[32m[1205 23:53:10 @monitor.py:363][0m max_score: 6
+[32m[1205 23:53:10 @monitor.py:363][0m mean_score: -2.64
+[32m[1205 23:53:10 @monitor.py:363][0m policy_loss: -1.032
+[32m[1205 23:53:10 @monitor.py:363][0m predict_reward_1: -0.17295
+[32m[1205 23:53:10 @monitor.py:363][0m predict_reward_2: -0.18079
+[32m[1205 23:53:10 @monitor.py:363][0m predict_reward_avg: -0.17687
+[32m[1205 23:53:10 @monitor.py:363][0m rms_advantage_1: 0.13783
+[32m[1205 23:53:10 @monitor.py:363][0m rms_advantage_2: 0.13764
+[32m[1205 23:53:10 @monitor.py:363][0m rms_advantage_avg: 0.13773
+[32m[1205 23:53:10 @monitor.py:363][0m value_loss: 1.3541
+[32m[1205 23:53:10 @monitor.py:363][0m xentropy_loss: -206.05
+[32m[1205 23:53:10 @group.py:42][0m Callbacks took 383.714 sec in total. PeriodicTrigger-Evaluator: 383.623sec
+[32m[1205 23:53:10 @base.py:209][0m Start Epoch 8 ...
+[32m[1206 00:11:38 @base.py:219][0m Epoch 8 (global_step 48000) finished, time:1108.38 sec.
+[32m[1206 00:11:38 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-48000.
+[32m[1206 00:17:41 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00062411
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011805
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00034453
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0016386
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00034454
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0015513
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00025748
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0025487
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00045066
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0034375
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0012941
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0094259
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012755
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0092527
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.8946e-05
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00053254
+[32m[1206 00:17:41 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.015079
+[32m[1206 00:17:41 @monitor.py:363][0m cost: -0.0084515
+[32m[1206 00:17:41 @monitor.py:363][0m importance: 0.99944
+[32m[1206 00:17:41 @monitor.py:363][0m max_score: 9
+[32m[1206 00:17:41 @monitor.py:363][0m mean_score: -0.94
+[32m[1206 00:17:41 @monitor.py:363][0m policy_loss: -0.14082
+[32m[1206 00:17:41 @monitor.py:363][0m predict_reward_1: 0.0038015
+[32m[1206 00:17:41 @monitor.py:363][0m predict_reward_2: 0.007111
+[32m[1206 00:17:41 @monitor.py:363][0m predict_reward_avg: 0.0054563
+[32m[1206 00:17:41 @monitor.py:363][0m rms_advantage_1: 0.12983
+[32m[1206 00:17:41 @monitor.py:363][0m rms_advantage_2: 0.12873
+[32m[1206 00:17:41 @monitor.py:363][0m rms_advantage_avg: 0.12928
+[32m[1206 00:17:41 @monitor.py:363][0m value_loss: 1.1693
+[32m[1206 00:17:41 @monitor.py:363][0m xentropy_loss: -211.03
+[32m[1206 00:17:41 @group.py:42][0m Callbacks took 362.783 sec in total. PeriodicTrigger-Evaluator: 362.694sec
+[32m[1206 00:17:41 @base.py:209][0m Start Epoch 9 ...
+[32m[1206 00:36:04 @base.py:219][0m Epoch 9 (global_step 54000) finished, time:1103.34 sec.
+[32m[1206 00:36:04 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-54000.
+[32m[1206 00:45:56 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00045796
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.000788
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00029562
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0012454
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00024927
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0010869
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00020892
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0020254
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0003843
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0028721
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011813
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0084556
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013178
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.010477
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.1138e-05
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00043622
+[32m[1206 00:45:56 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.01717
+[32m[1206 00:45:56 @monitor.py:363][0m cost: -0.008619
+[32m[1206 00:45:56 @monitor.py:363][0m importance: 1.0001
+[32m[1206 00:45:56 @monitor.py:363][0m max_score: 15
+[32m[1206 00:45:56 @monitor.py:363][0m mean_score: 5.26
+[32m[1206 00:45:56 @monitor.py:363][0m policy_loss: 0.163
+[32m[1206 00:45:56 @monitor.py:363][0m predict_reward_1: -0.11691
+[32m[1206 00:45:56 @monitor.py:363][0m predict_reward_2: -0.11877
+[32m[1206 00:45:56 @monitor.py:363][0m predict_reward_avg: -0.11784
+[32m[1206 00:45:56 @monitor.py:363][0m rms_advantage_1: 0.10668
+[32m[1206 00:45:56 @monitor.py:363][0m rms_advantage_2: 0.10731
+[32m[1206 00:45:56 @monitor.py:363][0m rms_advantage_avg: 0.10699
+[32m[1206 00:45:56 @monitor.py:363][0m value_loss: 0.83348
+[32m[1206 00:45:56 @monitor.py:363][0m xentropy_loss: -209.97
+[32m[1206 00:45:56 @group.py:42][0m Callbacks took 591.544 sec in total. PeriodicTrigger-Evaluator: 591.452sec
+[32m[1206 00:45:56 @base.py:209][0m Start Epoch 10 ...
+[32m[1206 01:04:28 @base.py:219][0m Epoch 10 (global_step 60000) finished, time:1111.58 sec.
+[32m[1206 01:04:28 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-60000.
+[32m[1206 01:14:22 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00076278
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0017737
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00031721
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0014095
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00023965
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0012702
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00020481
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0020645
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00036244
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0029291
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011663
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.010031
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012443
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.010761
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.8121e-05
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00044107
+[32m[1206 01:14:22 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.016249
+[32m[1206 01:14:22 @monitor.py:363][0m cost: -0.011689
+[32m[1206 01:14:22 @monitor.py:363][0m importance: 0.99998
+[32m[1206 01:14:22 @monitor.py:363][0m max_score: 13
+[32m[1206 01:14:22 @monitor.py:363][0m mean_score: 5.62
+[32m[1206 01:14:22 @monitor.py:363][0m policy_loss: -0.30038
+[32m[1206 01:14:22 @monitor.py:363][0m predict_reward_1: -0.12196
+[32m[1206 01:14:22 @monitor.py:363][0m predict_reward_2: -0.12415
+[32m[1206 01:14:22 @monitor.py:363][0m predict_reward_avg: -0.12305
+[32m[1206 01:14:22 @monitor.py:363][0m rms_advantage_1: 0.11221
+[32m[1206 01:14:22 @monitor.py:363][0m rms_advantage_2: 0.11232
+[32m[1206 01:14:22 @monitor.py:363][0m rms_advantage_avg: 0.11226
+[32m[1206 01:14:22 @monitor.py:363][0m value_loss: 0.93047
+[32m[1206 01:14:22 @monitor.py:363][0m xentropy_loss: -212.63
+[32m[1206 01:14:22 @group.py:42][0m Callbacks took 594.367 sec in total. PeriodicTrigger-Evaluator: 594.246sec
+[32m[1206 01:14:22 @base.py:209][0m Start Epoch 11 ...
+[32m[1206 01:32:44 @base.py:219][0m Epoch 11 (global_step 66000) finished, time:1102.42 sec.
+[32m[1206 01:32:44 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-66000.
+[32m[1206 01:39:54 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00042402
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00075528
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00020078
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010393
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.0002079
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00099505
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00017471
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0018087
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00036105
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0029274
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011152
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0084815
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0010019
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0079348
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.8447e-05
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00039326
+[32m[1206 01:39:54 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.017215
+[32m[1206 01:39:54 @monitor.py:363][0m cost: -0.01266
+[32m[1206 01:39:54 @monitor.py:363][0m importance: 1.0002
+[32m[1206 01:39:54 @monitor.py:363][0m max_score: 14
+[32m[1206 01:39:54 @monitor.py:363][0m mean_score: 8.34
+[32m[1206 01:39:54 @monitor.py:363][0m policy_loss: -0.10754
+[32m[1206 01:39:54 @monitor.py:363][0m predict_reward_1: 0.03597
+[32m[1206 01:39:54 @monitor.py:363][0m predict_reward_2: 0.036166
+[32m[1206 01:39:54 @monitor.py:363][0m predict_reward_avg: 0.036068
+[32m[1206 01:39:54 @monitor.py:363][0m rms_advantage_1: 0.093457
+[32m[1206 01:39:54 @monitor.py:363][0m rms_advantage_2: 0.092126
+[32m[1206 01:39:54 @monitor.py:363][0m rms_advantage_avg: 0.092791
+[32m[1206 01:39:54 @monitor.py:363][0m value_loss: 0.61694
+[32m[1206 01:39:54 @monitor.py:363][0m xentropy_loss: -212.99
+[32m[1206 01:39:54 @group.py:42][0m Callbacks took 429.289 sec in total. PeriodicTrigger-Evaluator: 429.203sec
+[32m[1206 01:39:54 @base.py:209][0m Start Epoch 12 ...
+[32m[1206 01:58:16 @base.py:219][0m Epoch 12 (global_step 72000) finished, time:1102.14 sec.
+[32m[1206 01:58:16 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-72000.
+[32m[1206 02:07:46 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00062114
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0013461
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00026189
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0012272
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00021619
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0012272
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00019197
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0016804
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00032743
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0027701
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.00097049
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0072989
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.00098971
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.007961
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.6045e-05
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00039522
+[32m[1206 02:07:46 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.016909
+[32m[1206 02:07:46 @monitor.py:363][0m cost: -0.014477
+[32m[1206 02:07:46 @monitor.py:363][0m importance: 0.99987
+[32m[1206 02:07:46 @monitor.py:363][0m max_score: 14
+[32m[1206 02:07:46 @monitor.py:363][0m mean_score: 6.98
+[32m[1206 02:07:46 @monitor.py:363][0m policy_loss: -0.44209
+[32m[1206 02:07:46 @monitor.py:363][0m predict_reward_1: -0.052503
+[32m[1206 02:07:46 @monitor.py:363][0m predict_reward_2: -0.055443
+[32m[1206 02:07:46 @monitor.py:363][0m predict_reward_avg: -0.053973
+[32m[1206 02:07:46 @monitor.py:363][0m rms_advantage_1: 0.10156
+[32m[1206 02:07:46 @monitor.py:363][0m rms_advantage_2: 0.10127
+[32m[1206 02:07:46 @monitor.py:363][0m rms_advantage_avg: 0.10142
+[32m[1206 02:07:46 @monitor.py:363][0m value_loss: 0.71262
+[32m[1206 02:07:46 @monitor.py:363][0m xentropy_loss: -212.36
+[32m[1206 02:07:46 @group.py:42][0m Callbacks took 570.638 sec in total. PeriodicTrigger-Evaluator: 570.566sec
+[32m[1206 02:07:46 @base.py:209][0m Start Epoch 13 ...
+[32m[1206 02:26:24 @base.py:219][0m Epoch 13 (global_step 78000) finished, time:1117.10 sec.
+[32m[1206 02:26:24 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-78000.
+[32m[1206 02:34:06 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00060899
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0012896
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00027163
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0015168
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00024823
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0011115
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00019661
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0020703
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00036021
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0030457
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0012229
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.010302
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0011645
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0088172
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.0803e-05
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00042292
+[32m[1206 02:34:06 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.023061
+[32m[1206 02:34:06 @monitor.py:363][0m cost: -0.010016
+[32m[1206 02:34:06 @monitor.py:363][0m importance: 1.0001
+[32m[1206 02:34:06 @monitor.py:363][0m max_score: 15
+[32m[1206 02:34:06 @monitor.py:363][0m mean_score: 8.16
+[32m[1206 02:34:06 @monitor.py:363][0m policy_loss: 0.017833
+[32m[1206 02:34:06 @monitor.py:363][0m predict_reward_1: -0.037781
+[32m[1206 02:34:06 @monitor.py:363][0m predict_reward_2: -0.032433
+[32m[1206 02:34:06 @monitor.py:363][0m predict_reward_avg: -0.035107
+[32m[1206 02:34:06 @monitor.py:363][0m rms_advantage_1: 0.10732
+[32m[1206 02:34:06 @monitor.py:363][0m rms_advantage_2: 0.10776
+[32m[1206 02:34:06 @monitor.py:363][0m rms_advantage_avg: 0.10754
+[32m[1206 02:34:06 @monitor.py:363][0m value_loss: 0.81439
+[32m[1206 02:34:06 @monitor.py:363][0m xentropy_loss: -211.43
+[32m[1206 02:34:06 @group.py:42][0m Callbacks took 462.649 sec in total. PeriodicTrigger-Evaluator: 462.531sec
+[32m[1206 02:34:06 @base.py:209][0m Start Epoch 14 ...
+[32m[1206 02:52:39 @base.py:219][0m Epoch 14 (global_step 84000) finished, time:1113.34 sec.
+[32m[1206 02:52:40 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-84000.
+[32m[1206 02:58:27 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00056041
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.001206
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.0002997
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0015251
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00027123
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0012555
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00023684
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.001751
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00046367
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0033916
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015118
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.011345
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.001473
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0082531
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.2632e-05
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00044988
+[32m[1206 02:58:27 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.022413
+[32m[1206 02:58:27 @monitor.py:363][0m cost: -0.011032
+[32m[1206 02:58:27 @monitor.py:363][0m importance: 0.99986
+[32m[1206 02:58:27 @monitor.py:363][0m max_score: 16
+[32m[1206 02:58:27 @monitor.py:363][0m mean_score: 0.98
+[32m[1206 02:58:27 @monitor.py:363][0m policy_loss: -0.43292
+[32m[1206 02:58:27 @monitor.py:363][0m predict_reward_1: 0.037329
+[32m[1206 02:58:27 @monitor.py:363][0m predict_reward_2: 0.034008
+[32m[1206 02:58:27 @monitor.py:363][0m predict_reward_avg: 0.035669
+[32m[1206 02:58:27 @monitor.py:363][0m rms_advantage_1: 0.12303
+[32m[1206 02:58:27 @monitor.py:363][0m rms_advantage_2: 0.12467
+[32m[1206 02:58:27 @monitor.py:363][0m rms_advantage_avg: 0.12385
+[32m[1206 02:58:27 @monitor.py:363][0m value_loss: 1.1513
+[32m[1206 02:58:27 @monitor.py:363][0m xentropy_loss: -213.04
+[32m[1206 02:58:27 @group.py:42][0m Callbacks took 347.784 sec in total. PeriodicTrigger-Evaluator: 347.704sec
+[32m[1206 02:58:27 @base.py:209][0m Start Epoch 15 ...
+[32m[1206 03:17:03 @base.py:219][0m Epoch 15 (global_step 90000) finished, time:1115.68 sec.
+[32m[1206 03:17:03 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-90000.
+[32m[1206 03:23:38 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00076024
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0017949
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00032488
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0015604
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00028371
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0012358
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.0002564
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0018679
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00038468
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0030948
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014652
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.009262
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013415
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0077808
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.1894e-05
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00039375
+[32m[1206 03:23:38 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.028496
+[32m[1206 03:23:38 @monitor.py:363][0m cost: -0.0067298
+[32m[1206 03:23:38 @monitor.py:363][0m importance: 0.99871
+[32m[1206 03:23:38 @monitor.py:363][0m max_score: 20
+[32m[1206 03:23:38 @monitor.py:363][0m mean_score: 11.74
+[32m[1206 03:23:38 @monitor.py:363][0m policy_loss: 0.35293
+[32m[1206 03:23:38 @monitor.py:363][0m predict_reward_1: 0.038231
+[32m[1206 03:23:38 @monitor.py:363][0m predict_reward_2: 0.042757
+[32m[1206 03:23:38 @monitor.py:363][0m predict_reward_avg: 0.040494
+[32m[1206 03:23:38 @monitor.py:363][0m rms_advantage_1: 0.11081
+[32m[1206 03:23:38 @monitor.py:363][0m rms_advantage_2: 0.11017
+[32m[1206 03:23:38 @monitor.py:363][0m rms_advantage_avg: 0.11049
+[32m[1206 03:23:38 @monitor.py:363][0m value_loss: 0.89022
+[32m[1206 03:23:38 @monitor.py:363][0m xentropy_loss: -210.46
+[32m[1206 03:23:38 @group.py:42][0m Callbacks took 394.612 sec in total. PeriodicTrigger-Evaluator: 394.527sec
+[32m[1206 03:23:38 @base.py:209][0m Start Epoch 16 ...
+[32m[1206 03:42:10 @base.py:219][0m Epoch 16 (global_step 96000) finished, time:1112.74 sec.
+[32m[1206 03:42:10 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-96000.
+[32m[1206 03:48:50 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00052469
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010467
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00027948
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0013269
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00025892
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0010451
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00022348
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0016383
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00045756
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.00269
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0017799
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.010509
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012865
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0073562
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.2786e-05
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00035992
+[32m[1206 03:48:50 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.020444
+[32m[1206 03:48:50 @monitor.py:363][0m cost: -0.01083
+[32m[1206 03:48:50 @monitor.py:363][0m importance: 0.99967
+[32m[1206 03:48:50 @monitor.py:363][0m max_score: 16
+[32m[1206 03:48:50 @monitor.py:363][0m mean_score: 9.8
+[32m[1206 03:48:50 @monitor.py:363][0m policy_loss: -0.10681
+[32m[1206 03:48:50 @monitor.py:363][0m predict_reward_1: 0.049219
+[32m[1206 03:48:50 @monitor.py:363][0m predict_reward_2: 0.052415
+[32m[1206 03:48:50 @monitor.py:363][0m predict_reward_avg: 0.050817
+[32m[1206 03:48:50 @monitor.py:363][0m rms_advantage_1: 0.10548
+[32m[1206 03:48:50 @monitor.py:363][0m rms_advantage_2: 0.1039
+[32m[1206 03:48:50 @monitor.py:363][0m rms_advantage_avg: 0.10469
+[32m[1206 03:48:50 @monitor.py:363][0m value_loss: 0.82026
+[32m[1206 03:48:50 @monitor.py:363][0m xentropy_loss: -209.98
+[32m[1206 03:48:50 @group.py:42][0m Callbacks took 399.671 sec in total. PeriodicTrigger-Evaluator: 399.584sec
+[32m[1206 03:48:50 @base.py:209][0m Start Epoch 17 ...
+[32m[1206 04:07:20 @base.py:219][0m Epoch 17 (global_step 102000) finished, time:1110.39 sec.
+[32m[1206 04:07:20 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-102000.
+[32m[1206 04:13:58 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00037034
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00079458
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.0001781
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010007
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.0001814
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00083566
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00016983
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0013036
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00035975
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0027921
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011148
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0071394
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0010279
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0073535
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.7641e-05
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00033528
+[32m[1206 04:13:58 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.02395
+[32m[1206 04:13:58 @monitor.py:363][0m cost: -0.012193
+[32m[1206 04:13:58 @monitor.py:363][0m importance: 0.99991
+[32m[1206 04:13:58 @monitor.py:363][0m max_score: 18
+[32m[1206 04:13:58 @monitor.py:363][0m mean_score: 8.68
+[32m[1206 04:13:58 @monitor.py:363][0m policy_loss: -0.1165
+[32m[1206 04:13:58 @monitor.py:363][0m predict_reward_1: 0.019976
+[32m[1206 04:13:58 @monitor.py:363][0m predict_reward_2: 0.022548
+[32m[1206 04:13:58 @monitor.py:363][0m predict_reward_avg: 0.021262
+[32m[1206 04:13:58 @monitor.py:363][0m rms_advantage_1: 0.095841
+[32m[1206 04:13:58 @monitor.py:363][0m rms_advantage_2: 0.09494
+[32m[1206 04:13:58 @monitor.py:363][0m rms_advantage_avg: 0.095391
+[32m[1206 04:13:58 @monitor.py:363][0m value_loss: 0.63966
+[32m[1206 04:13:58 @monitor.py:363][0m xentropy_loss: -208.38
+[32m[1206 04:13:58 @group.py:42][0m Callbacks took 397.935 sec in total. PeriodicTrigger-Evaluator: 397.858sec
+[32m[1206 04:13:58 @base.py:209][0m Start Epoch 18 ...
+[32m[1206 04:32:27 @base.py:219][0m Epoch 18 (global_step 108000) finished, time:1108.59 sec.
+[32m[1206 04:32:27 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-108000.
+[32m[1206 04:40:06 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0005973
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0013337
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00024078
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011647
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00023662
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00091336
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00021035
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0015085
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0004087
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0031197
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014916
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0082819
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013886
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.009412
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.3132e-05
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00037218
+[32m[1206 04:40:06 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0195
+[32m[1206 04:40:06 @monitor.py:363][0m cost: -0.0087062
+[32m[1206 04:40:06 @monitor.py:363][0m importance: 1.0001
+[32m[1206 04:40:06 @monitor.py:363][0m max_score: 16
+[32m[1206 04:40:06 @monitor.py:363][0m mean_score: 4.82
+[32m[1206 04:40:06 @monitor.py:363][0m policy_loss: 0.13253
+[32m[1206 04:40:06 @monitor.py:363][0m predict_reward_1: 0.097826
+[32m[1206 04:40:06 @monitor.py:363][0m predict_reward_2: 0.097954
+[32m[1206 04:40:06 @monitor.py:363][0m predict_reward_avg: 0.09789
+[32m[1206 04:40:06 @monitor.py:363][0m rms_advantage_1: 0.10885
+[32m[1206 04:40:06 @monitor.py:363][0m rms_advantage_2: 0.11128
+[32m[1206 04:40:06 @monitor.py:363][0m rms_advantage_avg: 0.11006
+[32m[1206 04:40:06 @monitor.py:363][0m value_loss: 0.88
+[32m[1206 04:40:06 @monitor.py:363][0m xentropy_loss: -212.69
+[32m[1206 04:40:06 @group.py:42][0m Callbacks took 459.429 sec in total. PeriodicTrigger-Evaluator: 459.316sec
+[32m[1206 04:40:06 @base.py:209][0m Start Epoch 19 ...
+[32m[1206 04:58:32 @base.py:219][0m Epoch 19 (global_step 114000) finished, time:1105.35 sec.
+[32m[1206 04:58:32 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-114000.
+[32m[1206 05:04:58 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00053401
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011248
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00023806
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010927
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00021863
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0010561
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00020171
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0014369
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0004271
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0025227
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0016067
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0074037
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013669
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0074214
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.0816e-05
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00031307
+[32m[1206 05:04:58 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.020869
+[32m[1206 05:04:58 @monitor.py:363][0m cost: -0.016188
+[32m[1206 05:04:58 @monitor.py:363][0m importance: 1.0002
+[32m[1206 05:04:58 @monitor.py:363][0m max_score: 18
+[32m[1206 05:04:58 @monitor.py:363][0m mean_score: 10.08
+[32m[1206 05:04:58 @monitor.py:363][0m policy_loss: -0.72341
+[32m[1206 05:04:58 @monitor.py:363][0m predict_reward_1: -0.013923
+[32m[1206 05:04:58 @monitor.py:363][0m predict_reward_2: -0.012487
+[32m[1206 05:04:58 @monitor.py:363][0m predict_reward_avg: -0.013205
+[32m[1206 05:04:58 @monitor.py:363][0m rms_advantage_1: 0.098214
+[32m[1206 05:04:58 @monitor.py:363][0m rms_advantage_2: 0.099519
+[32m[1206 05:04:58 @monitor.py:363][0m rms_advantage_avg: 0.098867
+[32m[1206 05:04:58 @monitor.py:363][0m value_loss: 0.72228
+[32m[1206 05:04:58 @monitor.py:363][0m xentropy_loss: -207.1
+[32m[1206 05:04:58 @group.py:42][0m Callbacks took 386.764 sec in total. PeriodicTrigger-Evaluator: 386.658sec
+[32m[1206 05:04:58 @base.py:209][0m Start Epoch 20 ...
+[32m[1206 05:23:24 @base.py:219][0m Epoch 20 (global_step 120000) finished, time:1105.11 sec.
+[32m[1206 05:23:24 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-120000.
+[32m[1206 05:23:24 @param.py:144][0m After epoch 20, learning_rate will change to 0.00030000
+[32m[1206 05:30:38 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00040033
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00084988
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00024604
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00097072
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.0001883
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00079855
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00018403
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0010983
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00039555
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0027323
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0013959
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0076817
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0014565
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0087737
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.7747e-05
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00029251
+[32m[1206 05:30:38 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.026389
+[32m[1206 05:30:38 @monitor.py:363][0m cost: -0.018517
+[32m[1206 05:30:38 @monitor.py:363][0m importance: 0.99991
+[32m[1206 05:30:38 @monitor.py:363][0m max_score: 19
+[32m[1206 05:30:38 @monitor.py:363][0m mean_score: 12.3
+[32m[1206 05:30:38 @monitor.py:363][0m policy_loss: -0.90683
+[32m[1206 05:30:38 @monitor.py:363][0m predict_reward_1: 0.023575
+[32m[1206 05:30:38 @monitor.py:363][0m predict_reward_2: 0.02222
+[32m[1206 05:30:38 @monitor.py:363][0m predict_reward_avg: 0.022898
+[32m[1206 05:30:38 @monitor.py:363][0m rms_advantage_1: 0.090562
+[32m[1206 05:30:38 @monitor.py:363][0m rms_advantage_2: 0.093054
+[32m[1206 05:30:38 @monitor.py:363][0m rms_advantage_avg: 0.091808
+[32m[1206 05:30:38 @monitor.py:363][0m value_loss: 0.61823
+[32m[1206 05:30:38 @monitor.py:363][0m xentropy_loss: -208.16
+[32m[1206 05:30:38 @group.py:42][0m Callbacks took 434.293 sec in total. PeriodicTrigger-Evaluator: 434.165sec
+[32m[1206 05:30:38 @base.py:209][0m Start Epoch 21 ...
+[32m[1206 05:49:03 @base.py:219][0m Epoch 21 (global_step 126000) finished, time:1105.54 sec.
+[32m[1206 05:49:03 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-126000.
+[32m[1206 05:55:25 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00040852
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.000804
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00025624
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011461
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00023626
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00087139
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00020627
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0014774
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00043812
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0031262
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011452
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0061643
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.001513
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0086271
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.42e-05
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00035909
+[32m[1206 05:55:25 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.032868
+[32m[1206 05:55:25 @monitor.py:363][0m cost: -0.013824
+[32m[1206 05:55:25 @monitor.py:363][0m importance: 1
+[32m[1206 05:55:25 @monitor.py:363][0m max_score: 20
+[32m[1206 05:55:25 @monitor.py:363][0m mean_score: 13.52
+[32m[1206 05:55:25 @monitor.py:363][0m policy_loss: -0.46667
+[32m[1206 05:55:25 @monitor.py:363][0m predict_reward_1: 0.11155
+[32m[1206 05:55:25 @monitor.py:363][0m predict_reward_2: 0.10942
+[32m[1206 05:55:25 @monitor.py:363][0m predict_reward_avg: 0.11049
+[32m[1206 05:55:25 @monitor.py:363][0m rms_advantage_1: 0.10309
+[32m[1206 05:55:25 @monitor.py:363][0m rms_advantage_2: 0.10342
+[32m[1206 05:55:25 @monitor.py:363][0m rms_advantage_avg: 0.10326
+[32m[1206 05:55:25 @monitor.py:363][0m value_loss: 0.7758
+[32m[1206 05:55:25 @monitor.py:363][0m xentropy_loss: -207.87
+[32m[1206 05:55:25 @group.py:42][0m Callbacks took 381.971 sec in total. PeriodicTrigger-Evaluator: 381.882sec
+[32m[1206 05:55:25 @base.py:209][0m Start Epoch 22 ...
+[32m[1206 06:13:51 @base.py:219][0m Epoch 22 (global_step 132000) finished, time:1105.38 sec.
+[32m[1206 06:13:51 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-132000.
+[32m[1206 06:20:11 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00042189
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00082797
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00023292
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00097459
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00024006
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00086994
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00021583
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0013037
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00042221
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0026447
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014086
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0069229
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0014427
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0076392
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.3621e-05
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00031697
+[32m[1206 06:20:11 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.039118
+[32m[1206 06:20:11 @monitor.py:363][0m cost: -0.0093438
+[32m[1206 06:20:11 @monitor.py:363][0m importance: 0.99995
+[32m[1206 06:20:11 @monitor.py:363][0m max_score: 16
+[32m[1206 06:20:11 @monitor.py:363][0m mean_score: 11.28
+[32m[1206 06:20:11 @monitor.py:363][0m policy_loss: 0.24405
+[32m[1206 06:20:11 @monitor.py:363][0m predict_reward_1: 0.14458
+[32m[1206 06:20:11 @monitor.py:363][0m predict_reward_2: 0.14634
+[32m[1206 06:20:11 @monitor.py:363][0m predict_reward_avg: 0.14546
+[32m[1206 06:20:11 @monitor.py:363][0m rms_advantage_1: 0.096513
+[32m[1206 06:20:11 @monitor.py:363][0m rms_advantage_2: 0.094361
+[32m[1206 06:20:11 @monitor.py:363][0m rms_advantage_avg: 0.095437
+[32m[1206 06:20:11 @monitor.py:363][0m value_loss: 0.66159
+[32m[1206 06:20:11 @monitor.py:363][0m xentropy_loss: -210.16
+[32m[1206 06:20:11 @group.py:42][0m Callbacks took 380.433 sec in total. PeriodicTrigger-Evaluator: 380.338sec
+[32m[1206 06:20:11 @base.py:209][0m Start Epoch 23 ...
+[32m[1206 06:38:40 @base.py:219][0m Epoch 23 (global_step 138000) finished, time:1108.77 sec.
+[32m[1206 06:38:40 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-138000.
+[32m[1206 06:44:26 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00052386
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010053
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00024624
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011009
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00025478
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00094943
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00023411
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0012452
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00052078
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.002904
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015212
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0070985
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0017871
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0078911
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.7753e-05
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00035892
+[32m[1206 06:44:26 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.029663
+[32m[1206 06:44:26 @monitor.py:363][0m cost: -0.016583
+[32m[1206 06:44:26 @monitor.py:363][0m importance: 0.99996
+[32m[1206 06:44:26 @monitor.py:363][0m max_score: 18
+[32m[1206 06:44:26 @monitor.py:363][0m mean_score: 10.38
+[32m[1206 06:44:26 @monitor.py:363][0m policy_loss: -0.91877
+[32m[1206 06:44:26 @monitor.py:363][0m predict_reward_1: 0.11872
+[32m[1206 06:44:26 @monitor.py:363][0m predict_reward_2: 0.12121
+[32m[1206 06:44:26 @monitor.py:363][0m predict_reward_avg: 0.11996
+[32m[1206 06:44:26 @monitor.py:363][0m rms_advantage_1: 0.1051
+[32m[1206 06:44:26 @monitor.py:363][0m rms_advantage_2: 0.10802
+[32m[1206 06:44:26 @monitor.py:363][0m rms_advantage_avg: 0.10656
+[32m[1206 06:44:26 @monitor.py:363][0m value_loss: 0.86567
+[32m[1206 06:44:26 @monitor.py:363][0m xentropy_loss: -206.96
+[32m[1206 06:44:26 @group.py:42][0m Callbacks took 345.910 sec in total. PeriodicTrigger-Evaluator: 345.835sec
+[32m[1206 06:44:26 @base.py:209][0m Start Epoch 24 ...
+[32m[1206 07:02:53 @base.py:219][0m Epoch 24 (global_step 144000) finished, time:1107.32 sec.
+[32m[1206 07:02:53 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-144000.
+[32m[1206 07:09:24 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00029423
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00057051
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00016567
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00067461
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00016787
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00064223
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00015561
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0009636
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00043075
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0025139
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0016335
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0070744
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013346
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0062724
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.7751e-05
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.000257
+[32m[1206 07:09:24 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.028775
+[32m[1206 07:09:24 @monitor.py:363][0m cost: -0.0073749
+[32m[1206 07:09:24 @monitor.py:363][0m importance: 0.99999
+[32m[1206 07:09:24 @monitor.py:363][0m max_score: 17
+[32m[1206 07:09:24 @monitor.py:363][0m mean_score: 10
+[32m[1206 07:09:24 @monitor.py:363][0m policy_loss: 0.49061
+[32m[1206 07:09:24 @monitor.py:363][0m predict_reward_1: 0.10696
+[32m[1206 07:09:24 @monitor.py:363][0m predict_reward_2: 0.10545
+[32m[1206 07:09:24 @monitor.py:363][0m predict_reward_avg: 0.1062
+[32m[1206 07:09:24 @monitor.py:363][0m rms_advantage_1: 0.092279
+[32m[1206 07:09:24 @monitor.py:363][0m rms_advantage_2: 0.092667
+[32m[1206 07:09:24 @monitor.py:363][0m rms_advantage_avg: 0.092473
+[32m[1206 07:09:24 @monitor.py:363][0m value_loss: 0.63408
+[32m[1206 07:09:24 @monitor.py:363][0m xentropy_loss: -206.87
+[32m[1206 07:09:24 @group.py:42][0m Callbacks took 390.571 sec in total. PeriodicTrigger-Evaluator: 390.469sec
+[32m[1206 07:09:24 @base.py:209][0m Start Epoch 25 ...
+[32m[1206 07:27:50 @base.py:219][0m Epoch 25 (global_step 150000) finished, time:1106.02 sec.
+[32m[1206 07:27:50 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-150000.
+[32m[1206 07:33:23 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00045691
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00092086
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00023173
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011015
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00023124
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00080571
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00021184
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0010961
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00051551
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0027753
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015749
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0071709
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012534
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0066661
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.2756e-05
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00028692
+[32m[1206 07:33:23 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.029655
+[32m[1206 07:33:23 @monitor.py:363][0m cost: -0.017069
+[32m[1206 07:33:23 @monitor.py:363][0m importance: 1.0002
+[32m[1206 07:33:23 @monitor.py:363][0m max_score: 20
+[32m[1206 07:33:23 @monitor.py:363][0m mean_score: 12.68
+[32m[1206 07:33:23 @monitor.py:363][0m policy_loss: -0.79307
+[32m[1206 07:33:23 @monitor.py:363][0m predict_reward_1: 0.18881
+[32m[1206 07:33:23 @monitor.py:363][0m predict_reward_2: 0.19219
+[32m[1206 07:33:23 @monitor.py:363][0m predict_reward_avg: 0.1905
+[32m[1206 07:33:23 @monitor.py:363][0m rms_advantage_1: 0.093771
+[32m[1206 07:33:23 @monitor.py:363][0m rms_advantage_2: 0.095155
+[32m[1206 07:33:23 @monitor.py:363][0m rms_advantage_avg: 0.094463
+[32m[1206 07:33:23 @monitor.py:363][0m value_loss: 0.7126
+[32m[1206 07:33:23 @monitor.py:363][0m xentropy_loss: -210.44
+[32m[1206 07:33:23 @group.py:42][0m Callbacks took 333.453 sec in total. PeriodicTrigger-Evaluator: 333.350sec
+[32m[1206 07:33:23 @base.py:209][0m Start Epoch 26 ...
+[32m[1206 07:51:53 @base.py:219][0m Epoch 26 (global_step 156000) finished, time:1109.29 sec.
+[32m[1206 07:51:53 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-156000.
+[32m[1206 07:57:22 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00058662
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0013011
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00024097
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011043
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00025885
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00086773
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00023316
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0014161
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00053679
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0026304
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0018013
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0070532
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0021331
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0074295
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.7235e-05
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00032278
+[32m[1206 07:57:22 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.03385
+[32m[1206 07:57:22 @monitor.py:363][0m cost: -0.010977
+[32m[1206 07:57:22 @monitor.py:363][0m importance: 1.0001
+[32m[1206 07:57:22 @monitor.py:363][0m max_score: 20
+[32m[1206 07:57:22 @monitor.py:363][0m mean_score: 14.86
+[32m[1206 07:57:22 @monitor.py:363][0m policy_loss: -0.28263
+[32m[1206 07:57:22 @monitor.py:363][0m predict_reward_1: 0.17592
+[32m[1206 07:57:22 @monitor.py:363][0m predict_reward_2: 0.17282
+[32m[1206 07:57:22 @monitor.py:363][0m predict_reward_avg: 0.17437
+[32m[1206 07:57:22 @monitor.py:363][0m rms_advantage_1: 0.11127
+[32m[1206 07:57:22 @monitor.py:363][0m rms_advantage_2: 0.11289
+[32m[1206 07:57:22 @monitor.py:363][0m rms_advantage_avg: 0.11208
+[32m[1206 07:57:22 @monitor.py:363][0m value_loss: 0.95481
+[32m[1206 07:57:22 @monitor.py:363][0m xentropy_loss: -207.72
+[32m[1206 07:57:22 @group.py:42][0m Callbacks took 329.790 sec in total. PeriodicTrigger-Evaluator: 329.717sec
+[32m[1206 07:57:22 @base.py:209][0m Start Epoch 27 ...
+[32m[1206 08:15:54 @base.py:219][0m Epoch 27 (global_step 162000) finished, time:1112.15 sec.
+[32m[1206 08:15:55 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-162000.
+[32m[1206 08:20:53 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00054402
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010963
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00027237
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.001251
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00026371
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00091367
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.0002415
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0013409
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00045875
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0028206
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0018962
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0092019
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0015026
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0075808
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.6625e-05
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00033076
+[32m[1206 08:20:53 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.027509
+[32m[1206 08:20:53 @monitor.py:363][0m cost: -0.0084438
+[32m[1206 08:20:53 @monitor.py:363][0m importance: 0.99998
+[32m[1206 08:20:53 @monitor.py:363][0m max_score: 18
+[32m[1206 08:20:53 @monitor.py:363][0m mean_score: 14
+[32m[1206 08:20:53 @monitor.py:363][0m policy_loss: 0.26194
+[32m[1206 08:20:53 @monitor.py:363][0m predict_reward_1: 0.21007
+[32m[1206 08:20:53 @monitor.py:363][0m predict_reward_2: 0.20846
+[32m[1206 08:20:53 @monitor.py:363][0m predict_reward_avg: 0.20927
+[32m[1206 08:20:53 @monitor.py:363][0m rms_advantage_1: 0.10061
+[32m[1206 08:20:53 @monitor.py:363][0m rms_advantage_2: 0.10104
+[32m[1206 08:20:53 @monitor.py:363][0m rms_advantage_avg: 0.10082
+[32m[1206 08:20:53 @monitor.py:363][0m value_loss: 0.75435
+[32m[1206 08:20:53 @monitor.py:363][0m xentropy_loss: -209.71
+[32m[1206 08:20:53 @group.py:42][0m Callbacks took 298.996 sec in total. PeriodicTrigger-Evaluator: 298.906sec
+[32m[1206 08:20:53 @base.py:209][0m Start Epoch 28 ...
+[32m[1206 08:39:22 @base.py:219][0m Epoch 28 (global_step 168000) finished, time:1108.32 sec.
+[32m[1206 08:39:22 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-168000.
+[32m[1206 08:43:26 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00055051
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010444
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00030004
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0013112
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00027165
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00091445
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00025268
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0012946
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00054042
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.002531
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0020205
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0094425
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0018004
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0075153
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.799e-05
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00032779
+[32m[1206 08:43:26 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.027184
+[32m[1206 08:43:26 @monitor.py:363][0m cost: -0.0091284
+[32m[1206 08:43:26 @monitor.py:363][0m importance: 0.99993
+[32m[1206 08:43:26 @monitor.py:363][0m max_score: 21
+[32m[1206 08:43:26 @monitor.py:363][0m mean_score: 17.16
+[32m[1206 08:43:26 @monitor.py:363][0m policy_loss: 0.085627
+[32m[1206 08:43:26 @monitor.py:363][0m predict_reward_1: 0.30621
+[32m[1206 08:43:26 @monitor.py:363][0m predict_reward_2: 0.30465
+[32m[1206 08:43:26 @monitor.py:363][0m predict_reward_avg: 0.30543
+[32m[1206 08:43:26 @monitor.py:363][0m rms_advantage_1: 0.10552
+[32m[1206 08:43:26 @monitor.py:363][0m rms_advantage_2: 0.10463
+[32m[1206 08:43:26 @monitor.py:363][0m rms_advantage_avg: 0.10507
+[32m[1206 08:43:26 @monitor.py:363][0m value_loss: 0.82077
+[32m[1206 08:43:26 @monitor.py:363][0m xentropy_loss: -207.48
+[32m[1206 08:43:26 @group.py:42][0m Callbacks took 244.102 sec in total. PeriodicTrigger-Evaluator: 244.007sec
+[32m[1206 08:43:26 @base.py:209][0m Start Epoch 29 ...
+[32m[1206 09:01:55 @base.py:219][0m Epoch 29 (global_step 174000) finished, time:1108.96 sec.
+[32m[1206 09:01:55 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-174000.
+[32m[1206 09:07:02 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00033493
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00065316
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00022015
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00087928
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00020145
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00073935
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00018064
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00087974
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00042519
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0021567
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015303
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0055958
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0016286
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0062082
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.9937e-05
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024314
+[32m[1206 09:07:02 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.025536
+[32m[1206 09:07:02 @monitor.py:363][0m cost: -0.013336
+[32m[1206 09:07:02 @monitor.py:363][0m importance: 1.0001
+[32m[1206 09:07:02 @monitor.py:363][0m max_score: 20
+[32m[1206 09:07:02 @monitor.py:363][0m mean_score: 16.06
+[32m[1206 09:07:02 @monitor.py:363][0m policy_loss: -0.24743
+[32m[1206 09:07:02 @monitor.py:363][0m predict_reward_1: 0.2235
+[32m[1206 09:07:02 @monitor.py:363][0m predict_reward_2: 0.22506
+[32m[1206 09:07:02 @monitor.py:363][0m predict_reward_avg: 0.22428
+[32m[1206 09:07:02 @monitor.py:363][0m rms_advantage_1: 0.089232
+[32m[1206 09:07:02 @monitor.py:363][0m rms_advantage_2: 0.089603
+[32m[1206 09:07:02 @monitor.py:363][0m rms_advantage_avg: 0.089418
+[32m[1206 09:07:02 @monitor.py:363][0m value_loss: 0.62985
+[32m[1206 09:07:02 @monitor.py:363][0m xentropy_loss: -208.94
+[32m[1206 09:07:02 @group.py:42][0m Callbacks took 307.386 sec in total. PeriodicTrigger-Evaluator: 307.315sec
+[32m[1206 09:07:02 @base.py:209][0m Start Epoch 30 ...
+[32m[1206 09:25:31 @base.py:219][0m Epoch 30 (global_step 180000) finished, time:1108.60 sec.
+[32m[1206 09:25:31 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-180000.
+[32m[1206 09:29:08 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00050427
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00091274
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00034058
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0013572
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00030785
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00094881
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.0002658
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0013397
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00057369
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0025842
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0020155
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0081369
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0020197
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.008371
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.9989e-05
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00034018
+[32m[1206 09:29:08 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.036691
+[32m[1206 09:29:08 @monitor.py:363][0m cost: -0.0067182
+[32m[1206 09:29:08 @monitor.py:363][0m importance: 1
+[32m[1206 09:29:08 @monitor.py:363][0m max_score: 20
+[32m[1206 09:29:08 @monitor.py:363][0m mean_score: 16.76
+[32m[1206 09:29:08 @monitor.py:363][0m policy_loss: 0.38185
+[32m[1206 09:29:08 @monitor.py:363][0m predict_reward_1: 0.38716
+[32m[1206 09:29:08 @monitor.py:363][0m predict_reward_2: 0.38973
+[32m[1206 09:29:08 @monitor.py:363][0m predict_reward_avg: 0.38845
+[32m[1206 09:29:08 @monitor.py:363][0m rms_advantage_1: 0.10603
+[32m[1206 09:29:08 @monitor.py:363][0m rms_advantage_2: 0.10445
+[32m[1206 09:29:08 @monitor.py:363][0m rms_advantage_avg: 0.10524
+[32m[1206 09:29:08 @monitor.py:363][0m value_loss: 0.84215
+[32m[1206 09:29:08 @monitor.py:363][0m xentropy_loss: -208.39
+[32m[1206 09:29:08 @group.py:42][0m Callbacks took 217.396 sec in total. PeriodicTrigger-Evaluator: 217.282sec
+[32m[1206 09:29:08 @base.py:209][0m Start Epoch 31 ...
+[32m[1206 09:47:37 @base.py:219][0m Epoch 31 (global_step 186000) finished, time:1108.42 sec.
+[32m[1206 09:47:37 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-186000.
+[32m[1206 09:51:09 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00046177
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00093823
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00023023
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010234
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00024236
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00089354
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.0002203
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0011587
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00051507
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0025344
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014395
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0063986
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0019013
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0085891
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.5663e-05
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00030628
+[32m[1206 09:51:09 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.029134
+[32m[1206 09:51:09 @monitor.py:363][0m cost: -0.010198
+[32m[1206 09:51:09 @monitor.py:363][0m importance: 0.99998
+[32m[1206 09:51:09 @monitor.py:363][0m max_score: 21
+[32m[1206 09:51:09 @monitor.py:363][0m mean_score: 18.1
+[32m[1206 09:51:09 @monitor.py:363][0m policy_loss: 0.18643
+[32m[1206 09:51:09 @monitor.py:363][0m predict_reward_1: 0.35593
+[32m[1206 09:51:09 @monitor.py:363][0m predict_reward_2: 0.35129
+[32m[1206 09:51:09 @monitor.py:363][0m predict_reward_avg: 0.35361
+[32m[1206 09:51:09 @monitor.py:363][0m rms_advantage_1: 0.091602
+[32m[1206 09:51:09 @monitor.py:363][0m rms_advantage_2: 0.092261
+[32m[1206 09:51:09 @monitor.py:363][0m rms_advantage_avg: 0.091932
+[32m[1206 09:51:09 @monitor.py:363][0m value_loss: 0.62432
+[32m[1206 09:51:09 @monitor.py:363][0m xentropy_loss: -211.61
+[32m[1206 09:51:09 @group.py:42][0m Callbacks took 212.002 sec in total. PeriodicTrigger-Evaluator: 211.915sec
+[32m[1206 09:51:09 @base.py:209][0m Start Epoch 32 ...
+[32m[1206 10:09:36 @base.py:219][0m Epoch 32 (global_step 192000) finished, time:1107.12 sec.
+[32m[1206 10:09:36 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-192000.
+[32m[1206 10:13:01 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00051278
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010454
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00025084
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011086
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00026892
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00096822
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00023551
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.001375
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00053518
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0027569
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0020741
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0078162
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0019308
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0071814
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 4.0063e-05
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00034437
+[32m[1206 10:13:01 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.033865
+[32m[1206 10:13:01 @monitor.py:363][0m cost: -0.015215
+[32m[1206 10:13:01 @monitor.py:363][0m importance: 0.99995
+[32m[1206 10:13:01 @monitor.py:363][0m max_score: 21
+[32m[1206 10:13:01 @monitor.py:363][0m mean_score: 16.82
+[32m[1206 10:13:01 @monitor.py:363][0m policy_loss: -0.62219
+[32m[1206 10:13:01 @monitor.py:363][0m predict_reward_1: 0.39101
+[32m[1206 10:13:01 @monitor.py:363][0m predict_reward_2: 0.39187
+[32m[1206 10:13:01 @monitor.py:363][0m predict_reward_avg: 0.39144
+[32m[1206 10:13:01 @monitor.py:363][0m rms_advantage_1: 0.098113
+[32m[1206 10:13:01 @monitor.py:363][0m rms_advantage_2: 0.098054
+[32m[1206 10:13:01 @monitor.py:363][0m rms_advantage_avg: 0.098083
+[32m[1206 10:13:01 @monitor.py:363][0m value_loss: 0.74361
+[32m[1206 10:13:01 @monitor.py:363][0m xentropy_loss: -206.89
+[32m[1206 10:13:01 @group.py:42][0m Callbacks took 205.427 sec in total. PeriodicTrigger-Evaluator: 205.347sec
+[32m[1206 10:13:01 @base.py:209][0m Start Epoch 33 ...
+[32m[1206 10:31:32 @base.py:219][0m Epoch 33 (global_step 198000) finished, time:1111.12 sec.
+[32m[1206 10:31:32 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-198000.
+[32m[1206 10:34:37 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00048074
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00092549
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00025378
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010605
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00023648
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00087913
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00021832
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0010721
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0004739
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0023555
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0015864
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0085058
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0014752
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0064175
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.5796e-05
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00029958
+[32m[1206 10:34:37 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.029159
+[32m[1206 10:34:37 @monitor.py:363][0m cost: -0.0063512
+[32m[1206 10:34:37 @monitor.py:363][0m importance: 1
+[32m[1206 10:34:37 @monitor.py:363][0m max_score: 21
+[32m[1206 10:34:37 @monitor.py:363][0m mean_score: 18.64
+[32m[1206 10:34:37 @monitor.py:363][0m policy_loss: 0.69552
+[32m[1206 10:34:37 @monitor.py:363][0m predict_reward_1: 0.49069
+[32m[1206 10:34:37 @monitor.py:363][0m predict_reward_2: 0.48923
+[32m[1206 10:34:37 @monitor.py:363][0m predict_reward_avg: 0.48996
+[32m[1206 10:34:37 @monitor.py:363][0m rms_advantage_1: 0.086509
+[32m[1206 10:34:37 @monitor.py:363][0m rms_advantage_2: 0.086187
+[32m[1206 10:34:37 @monitor.py:363][0m rms_advantage_avg: 0.086348
+[32m[1206 10:34:37 @monitor.py:363][0m value_loss: 0.55986
+[32m[1206 10:34:37 @monitor.py:363][0m xentropy_loss: -206.83
+[32m[1206 10:34:37 @group.py:42][0m Callbacks took 185.089 sec in total. PeriodicTrigger-Evaluator: 184.997sec
+[32m[1206 10:34:37 @base.py:209][0m Start Epoch 34 ...
+[32m[1206 10:53:09 @base.py:219][0m Epoch 34 (global_step 204000) finished, time:1111.48 sec.
+[32m[1206 10:53:09 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-204000.
+[32m[1206 10:56:10 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00049475
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00094588
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00025303
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00097915
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00024307
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00080907
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00022735
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0010639
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0005371
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0023439
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0021557
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0071746
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0018554
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0064983
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 3.7814e-05
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00028039
+[32m[1206 10:56:10 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.039733
+[32m[1206 10:56:10 @monitor.py:363][0m cost: -0.016105
+[32m[1206 10:56:10 @monitor.py:363][0m importance: 1.0001
+[32m[1206 10:56:10 @monitor.py:363][0m max_score: 21
+[32m[1206 10:56:10 @monitor.py:363][0m mean_score: 18.48
+[32m[1206 10:56:10 @monitor.py:363][0m policy_loss: -0.6092
+[32m[1206 10:56:10 @monitor.py:363][0m predict_reward_1: 0.55702
+[32m[1206 10:56:10 @monitor.py:363][0m predict_reward_2: 0.55683
+[32m[1206 10:56:10 @monitor.py:363][0m predict_reward_avg: 0.55693
+[32m[1206 10:56:10 @monitor.py:363][0m rms_advantage_1: 0.090141
+[32m[1206 10:56:10 @monitor.py:363][0m rms_advantage_2: 0.090712
+[32m[1206 10:56:10 @monitor.py:363][0m rms_advantage_avg: 0.090426
+[32m[1206 10:56:10 @monitor.py:363][0m value_loss: 0.60366
+[32m[1206 10:56:10 @monitor.py:363][0m xentropy_loss: -205.59
+[32m[1206 10:56:10 @group.py:42][0m Callbacks took 181.450 sec in total. PeriodicTrigger-Evaluator: 181.362sec
+[32m[1206 10:56:10 @base.py:209][0m Start Epoch 35 ...
+[32m[1206 11:14:44 @base.py:219][0m Epoch 35 (global_step 210000) finished, time:1113.81 sec.
+[32m[1206 11:14:44 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-210000.
+[32m[1206 11:17:22 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00033824
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00068633
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00018916
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00078052
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00017846
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00063839
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00016386
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0008432
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00037397
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0020182
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0013322
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0055734
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.001365
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0068327
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.9406e-05
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025928
+[32m[1206 11:17:22 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.028263
+[32m[1206 11:17:22 @monitor.py:363][0m cost: -0.013673
+[32m[1206 11:17:22 @monitor.py:363][0m importance: 0.99994
+[32m[1206 11:17:22 @monitor.py:363][0m max_score: 21
+[32m[1206 11:17:22 @monitor.py:363][0m mean_score: 19.4
+[32m[1206 11:17:22 @monitor.py:363][0m policy_loss: -0.16966
+[32m[1206 11:17:22 @monitor.py:363][0m predict_reward_1: 0.6127
+[32m[1206 11:17:22 @monitor.py:363][0m predict_reward_2: 0.61271
+[32m[1206 11:17:22 @monitor.py:363][0m predict_reward_avg: 0.6127
+[32m[1206 11:17:22 @monitor.py:363][0m rms_advantage_1: 0.080012
+[32m[1206 11:17:22 @monitor.py:363][0m rms_advantage_2: 0.079898
+[32m[1206 11:17:22 @monitor.py:363][0m rms_advantage_avg: 0.079955
+[32m[1206 11:17:22 @monitor.py:363][0m value_loss: 0.47094
+[32m[1206 11:17:22 @monitor.py:363][0m xentropy_loss: -205.15
+[32m[1206 11:17:22 @group.py:42][0m Callbacks took 157.603 sec in total. PeriodicTrigger-Evaluator: 157.518sec
+[32m[1206 11:17:22 @base.py:209][0m Start Epoch 36 ...
+[32m[1206 11:35:55 @base.py:219][0m Epoch 36 (global_step 216000) finished, time:1112.93 sec.
+[32m[1206 11:35:55 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-216000.
+[32m[1206 11:38:29 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027628
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00046775
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00017063
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00066011
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00015269
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00054644
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00015161
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00085757
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.0004054
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0023141
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0014397
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0056146
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0014291
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0055676
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.9297e-05
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024925
+[32m[1206 11:38:29 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.032322
+[32m[1206 11:38:29 @monitor.py:363][0m cost: -0.013998
+[32m[1206 11:38:29 @monitor.py:363][0m importance: 0.99999
+[32m[1206 11:38:29 @monitor.py:363][0m max_score: 21
+[32m[1206 11:38:29 @monitor.py:363][0m mean_score: 19.66
+[32m[1206 11:38:29 @monitor.py:363][0m policy_loss: -0.20666
+[32m[1206 11:38:29 @monitor.py:363][0m predict_reward_1: 0.58717
+[32m[1206 11:38:29 @monitor.py:363][0m predict_reward_2: 0.58633
+[32m[1206 11:38:29 @monitor.py:363][0m predict_reward_avg: 0.58675
+[32m[1206 11:38:29 @monitor.py:363][0m rms_advantage_1: 0.077272
+[32m[1206 11:38:29 @monitor.py:363][0m rms_advantage_2: 0.078164
+[32m[1206 11:38:29 @monitor.py:363][0m rms_advantage_avg: 0.077718
+[32m[1206 11:38:29 @monitor.py:363][0m value_loss: 0.46216
+[32m[1206 11:38:29 @monitor.py:363][0m xentropy_loss: -204.73
+[32m[1206 11:38:29 @group.py:42][0m Callbacks took 154.364 sec in total. PeriodicTrigger-Evaluator: 154.282sec
+[32m[1206 11:38:29 @base.py:209][0m Start Epoch 37 ...
+[32m[1206 11:57:02 @base.py:219][0m Epoch 37 (global_step 222000) finished, time:1112.66 sec.
+[32m[1206 11:57:02 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-222000.
+[32m[1206 11:59:38 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024753
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00048328
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00013681
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00063033
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00014812
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0005546
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00014149
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00081421
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00040879
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0022403
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0012787
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.0051608
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0012811
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0051794
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.875e-05
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024636
+[32m[1206 11:59:38 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.021847
+[32m[1206 11:59:38 @monitor.py:363][0m cost: -0.012702
+[32m[1206 11:59:38 @monitor.py:363][0m importance: 1
+[32m[1206 11:59:38 @monitor.py:363][0m max_score: 21
+[32m[1206 11:59:38 @monitor.py:363][0m mean_score: 19.94
+[32m[1206 11:59:38 @monitor.py:363][0m policy_loss: 0.022516
+[32m[1206 11:59:38 @monitor.py:363][0m predict_reward_1: 0.69804
+[32m[1206 11:59:38 @monitor.py:363][0m predict_reward_2: 0.69731
+[32m[1206 11:59:38 @monitor.py:363][0m predict_reward_avg: 0.69768
+[32m[1206 11:59:38 @monitor.py:363][0m rms_advantage_1: 0.074297
+[32m[1206 11:59:38 @monitor.py:363][0m rms_advantage_2: 0.074546
+[32m[1206 11:59:38 @monitor.py:363][0m rms_advantage_avg: 0.074422
+[32m[1206 11:59:38 @monitor.py:363][0m value_loss: 0.41231
+[32m[1206 11:59:38 @monitor.py:363][0m xentropy_loss: -206.07
+[32m[1206 11:59:38 @group.py:42][0m Callbacks took 156.096 sec in total. PeriodicTrigger-Evaluator: 155.999sec
+[32m[1206 11:59:38 @base.py:209][0m Start Epoch 38 ...
+[32m[1206 12:18:10 @base.py:219][0m Epoch 38 (global_step 228000) finished, time:1111.75 sec.
+[32m[1206 12:18:10 @saver.py:82][0m Model saved to train_log/train-atari-Pong-v0/model-228000.
+[32m[1206 12:20:55 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024955
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00049021
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012921
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.000556
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00013629
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00048755
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00013305
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00077018
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00036294
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0016798
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-v_1/W/rms: 0.0011142
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-v_1/b/rms: 0.005033
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-v_2/W/rms: 0.0013868
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc-v_2/b/rms: 0.0053758
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 2.6216e-05
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00022852
+[32m[1206 12:20:55 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.024151
+[32m[1206 12:20:55 @monitor.py:363][0m cost: -0.012384
+[32m[1206 12:20:55 @monitor.py:363][0m importance: 1
+[32m[1206 12:20:55 @monitor.py:363][0m max_score: 21
+[32m[1206 12:20:55 @monitor.py:363][0m mean_score: 19.44
+[32m[1206 12:20:55 @monitor.py:363][0m policy_loss: 0.096035
+[32m[1206 12:20:55 @monitor.py:363][0m predict_reward_1: 0.70884
+[32m[1206 12:20:55 @monitor.py:363][0m predict_reward_2: 0.70895
+[32m[1206 12:20:55 @monitor.py:363][0m predict_reward_avg: 0.7089
+[32m[1206 12:20:55 @monitor.py:363][0m rms_advantage_1: 0.067379
+[32m[1206 12:20:55 @monitor.py:363][0m rms_advantage_2: 0.067778
+[32m[1206 12:20:55 @monitor.py:363][0m rms_advantage_avg: 0.067579
+[32m[1206 12:20:55 @monitor.py:363][0m value_loss: 0.33425
+[32m[1206 12:20:55 @monitor.py:363][0m xentropy_loss: -201.55
+[32m[1206 12:20:55 @group.py:42][0m Callbacks took 165.590 sec in total. PeriodicTrigger-Evaluator: 165.505sec
+[32m[1206 12:20:55 @base.py:209][0m Start Epoch 39 ...
+[32m[1206 12:30:58 @base.py:227][0m Detected Ctrl-C and exiting main loop.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-10' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-47' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-48' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-29' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-1' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-46' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-20' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-0' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-36' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-35' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-19' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-13' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-34' cancelled.
+[32m[1206 12:30:58 @concurrency.py:97][0m [5m[31mWRN[0m In PredictorWorkerThread id=1, call was cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-42' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-43' cancelled.
+[32m[1206 12:30:58 @concurrency.py:97][0m [5m[31mWRN[0m In PredictorWorkerThread id=0, call was cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-41' cancelled.
+[32m[1206 12:30:58 @simulator.py:160][0m [Simulator] Context was terminated.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-5' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-22' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-33' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-2' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-16' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-14' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-7' cancelled.
+[32m[1206 12:30:58 @double-train-atari.py:181][0m Client b'simulator-26' cancelled.
+[32m[1206 12:30:58 @concurrency.py:97][0m [5m[31mWRN[0m In PredictorWorkerThread id=2, call was cancelled.

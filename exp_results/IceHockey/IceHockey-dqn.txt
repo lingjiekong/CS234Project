@@ -1,0 +1,238 @@
+yolandaw@yolandaw:~/yangxin/DQN-cs234$ python q5_train_atari_nature.py
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.8.0 locally
+[2017-06-02 11:13:37,561] Making new env: IceHockey-v0
+Nature model
+Nature model
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could s
+peed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could
+ speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could
+ speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could sp
+eed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could s
+peed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could sp
+eed up CPU computations.
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties:
+name: Tesla M60
+major: 5 minor: 2 memoryClockRate (GHz) 1.1775
+pciBusID b14d:00:00.0
+Total memory: 7.93GiB
+Free memory: 7.86GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla M60, pci bus id: b14d:00:00.0)
+[2017-06-02 11:13:40,518] Making new env: IceHockey-v0
+[2017-06-02 11:13:40,550] Creating monitor directory results/IceHockey_vanilla/monitor/
+[2017-06-02 11:13:40,565] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.0.51460.video000000.
+mp4
+[2017-06-02 11:13:50,800] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+[2017-06-02 11:13:50,801] Evaluating...
+[2017-06-02 11:18:13,453] Average reward: -17.62 +/- 0.39
+ 250401/5000000 [>.............................] - ETA: 34960s - Loss: 0.0017 - Avg R: -12.7600 - Max R: -5.0000 - eps: 0.7746 - Grads: 0.0914 - Max Q: 0.1948 - lr: 0.0
+002
+[2017-06-02 11:48:57,190] Evaluating...
+[2017-06-02 11:53:10,117] Average reward: -15.18 +/- 0.43
+[2017-06-02 11:53:10,119] Recording...
+[2017-06-02 11:53:10,119] Making new env: IceHockey-v0
+[2017-06-02 11:53:10,162] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.1.51460.video000000.
+mp4
+[2017-06-02 11:53:19,284] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+ 501401/5000000 [==>...........................] - ETA: 36908s - Loss: 0.0030 - Avg R: -11.3800 - Max R: -5.0000 - eps: 0.5487 - Grads: 0.0645 - Max Q: 0.3744 - lr: 0.0
+002
+[2017-06-02 12:26:47,752] Evaluating...
+[2017-06-02 12:30:53,650] Average reward: -13.70 +/- 0.35
+[2017-06-02 12:30:53,651] Recording...
+[2017-06-02 12:30:53,651] Making new env: IceHockey-v0
+[2017-06-02 12:30:53,693] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.2.51460.video000000.
+mp4
+[2017-06-02 12:31:02,546] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+ 752001/5000000 [===>..........................] - ETA: 35976s - Loss: 0.0294 - Avg R: -12.3000 - Max R: -7.0000 - eps: 0.3232 - Grads: 0.3253 - Max Q: 0.4592 - lr: 0.0
+002
+[2017-06-02 13:04:22,923] Evaluating...
+[2017-06-02 13:08:42,240] Average reward: -17.62 +/- 0.59
+[2017-06-02 13:08:42,241] Recording...
+[2017-06-02 13:08:42,242] Making new env: IceHockey-v0
+[2017-06-02 13:08:42,286] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.3.51460.video000000.
+mp4
+[2017-06-02 13:08:50,953] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+1002901/5000000 [=====>........................] - ETA: 34434s - Loss: 0.0057 - Avg R: -11.3000 - Max R: -3.0000 - eps: 0.1000 - Grads: 0.0921 - Max Q: 0.4621 - lr: 0.0
+002
+[2017-06-02 13:42:14,002] Evaluating...
+[2017-06-02 13:46:19,765] Average reward: -12.06 +/- 0.29
+[2017-06-02 13:46:19,766] Recording...
+[2017-06-02 13:46:19,766] Making new env: IceHockey-v0
+[2017-06-02 13:46:19,811] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.4.51460.video000000.
+mp4
+[2017-06-02 13:46:28,789] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+1254001/5000000 [======>.......................] - ETA: 32556s - Loss: 0.0050 - Avg R: -12.7000 - Max R: -4.0000 - eps: 0.1000 - Grads: 0.1430 - Max Q: 0.4453 - lr: 0.0
+001
+[2017-06-02 14:19:52,341] Evaluating...
+[2017-06-02 14:24:05,002] Average reward: -12.58 +/- 0.49
+[2017-06-02 14:24:05,003] Recording...
+[2017-06-02 14:24:05,003] Making new env: IceHockey-v0
+[2017-06-02 14:24:05,046] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.5.51460.video000000.
+mp4
+[2017-06-02 14:24:13,762] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+1505001/5000000 [========>.....................] - ETA: 30570s - Loss: 0.0330 - Avg R: -10.9400 - Max R: 0.0000 - eps: 0.1000 - Grads: 0.2686 - Max Q: 0.5304 - lr: 0.00
+01
+[2017-06-02 14:57:37,653] Evaluating...
+[2017-06-02 15:01:46,939] Average reward: -11.86 +/- 0.34
+[2017-06-02 15:01:46,940] Recording...
+[2017-06-02 15:01:46,941] Making new env: IceHockey-v0
+[2017-06-02 15:01:46,983] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.6.51460.video000000.
+mp4
+[2017-06-02 15:01:55,922] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+1755401/5000000 [=========>....................] - ETA: 28504s - Loss: 0.0031 - Avg R: -10.8600 - Max R: -3.0000 - eps: 0.1000 - Grads: 0.1024 - Max Q: 0.6020 - lr: 0.0
+001
+[2017-06-02 15:35:15,378] Evaluating...
+[2017-06-02 15:39:18,407] Average reward: -11.30 +/- 0.38
+[2017-06-02 15:39:18,409] Recording...
+[2017-06-02 15:39:18,409] Making new env: IceHockey-v0
+[2017-06-02 15:39:18,452] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.7.51460.video000000.
+mp4
+[2017-06-02 15:39:27,104] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+2005501/5000000 [===========>..................] - ETA: 26384s - Loss: 0.0180 - Avg R: -10.4400 - Max R: -2.0000 - eps: 0.1000 - Grads: 0.6608 - Max Q: 0.4497 - lr: 0.0
+001
+[2017-06-02 16:12:44,062] Evaluating...
+[2017-06-02 16:16:47,786] Average reward: -10.56 +/- 0.39
+[2017-06-02 16:16:47,788] Recording...
+[2017-06-02 16:16:47,788] Making new env: IceHockey-v0
+[2017-06-02 16:16:47,831] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.8.51460.video000000.
+mp4
+[2017-06-02 16:16:56,070] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+2255701/5000000 [============>.................] - ETA: 24235s - Loss: 0.0065 - Avg R: -10.0000 - Max R: -2.0000 - eps: 0.1000 - Grads: 0.3477 - Max Q: 0.4058 - lr: 0.0
+001
+[2017-06-02 16:50:14,104] Evaluating...
+[2017-06-02 16:54:24,713] Average reward: -4.56 +/- 0.41
+[2017-06-02 16:54:24,715] Recording...
+[2017-06-02 16:54:24,715] Making new env: IceHockey-v0
+[2017-06-02 16:54:24,758] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.9.51460.video000000.
+mp4
+[2017-06-02 16:54:33,566] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+2506501/5000000 [==============>...............] - ETA: 22066s - Loss: 0.0008 - Avg R: -8.5600 - Max R: -1.0000 - eps: 0.1000 - Grads: 0.0412 - Max Q: 0.3413 - lr: 0.00
+01
+[2017-06-02 17:27:55,405] Evaluating...
+[2017-06-02 17:31:57,248] Average reward: -9.00 +/- 0.34
+[2017-06-02 17:31:57,249] Recording...
+[2017-06-02 17:31:57,249] Making new env: IceHockey-v0
+[2017-06-02 17:31:57,293] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.10.51460.video000000
+.mp4
+[2017-06-02 17:32:05,623] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+2756801/5000000 [===============>..............] - ETA: 19881s - Loss: 0.0328 - Avg R: -6.8200 - Max R: 0.0000 - eps: 0.1000 - Grads: 0.4811 - Max Q: 0.3140 - lr: 0.000
+1
+[2017-06-02 18:05:27,147] Evaluating...
+[2017-06-02 18:09:44,874] Average reward: -5.60 +/- 0.47
+[2017-06-02 18:09:44,875] Recording...
+[2017-06-02 18:09:44,875] Making new env: IceHockey-v0
+[2017-06-02 18:09:44,919] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.11.51460.video000000
+.mp4
+[2017-06-02 18:09:53,882] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+3007901/5000000 [=================>............] - ETA: 17686s - Loss: 0.0053 - Avg R: -6.1400 - Max R: 1.0000 - eps: 0.1000 - Grads: 0.3415 - Max Q: 0.3667 - lr: 0.000
+1
+[2017-06-02 18:43:18,591] Evaluating...
+[2017-06-02 18:47:32,563] Average reward: -5.72 +/- 0.41
+[2017-06-02 18:47:32,564] Recording...
+[2017-06-02 18:47:32,564] Making new env: IceHockey-v0
+[2017-06-02 18:47:32,608] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.12.51460.video000000
+.mp4
+[2017-06-02 18:47:41,619] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+3258501/5000000 [==================>...........] - ETA: 15482s - Loss: 0.0158 - Avg R: -6.4400 - Max R: 2.0000 - eps: 0.1000 - Grads: 0.3587 - Max Q: 0.4518 - lr: 0.000
+1
+[2017-06-02 19:21:03,162] Evaluating...
+[2017-06-02 19:25:22,417] Average reward: -6.70 +/- 0.40
+[2017-06-02 19:25:22,418] Recording...
+[2017-06-02 19:25:22,418] Making new env: IceHockey-v0
+[2017-06-02 19:25:22,462] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.13.51460.video000000
+.mp4
+[2017-06-02 19:25:31,533] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+3509301/5000000 [====================>.........] - ETA: 13270s - Loss: 0.0077 - Avg R: -6.9000 - Max R: 0.0000 - eps: 0.1000 - Grads: 0.5097 - Max Q: 0.3543 - lr: 0.000
+1
+[2017-06-02 19:58:54,268] Evaluating...
+[2017-06-02 20:03:11,827] Average reward: -5.48 +/- 0.41
+[2017-06-02 20:03:11,828] Recording...
+[2017-06-02 20:03:11,828] Making new env: IceHockey-v0
+[2017-06-02 20:03:11,871] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.14.51460.video000000
+.mp4
+[2017-06-02 20:03:20,237] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+3760101/5000000 [=====================>........] - ETA: 11049s - Loss: 0.0144 - Avg R: -7.7800 - Max R: -1.0000 - eps: 0.1000 - Grads: 0.6774 - Max Q: 0.5320 - lr: 0.00
+01
+[2017-06-02 20:36:43,521] Evaluating...
+[2017-06-02 20:41:01,016] Average reward: -7.00 +/- 0.47
+[2017-06-02 20:41:01,017] Recording...
+[2017-06-02 20:41:01,017] Making new env: IceHockey-v0
+[2017-06-02 20:41:01,061] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.15.51460.video000000
+.mp4
+[2017-06-02 20:41:11,374] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+4010501/5000000 [=======================>......] - ETA: 8827s - Loss: 0.0113 - Avg R: -7.5800 - Max R: 1.0000 - eps: 0.1000 - Grads: 0.8387 - Max Q: 0.5112 - lr: 0.0001
+
+[2017-06-02 21:14:33,793] Evaluating...
+[2017-06-02 21:18:56,812] Average reward: -6.44 +/- 0.48
+[2017-06-02 21:18:56,813] Recording...
+[2017-06-02 21:18:56,813] Making new env: IceHockey-v0
+[2017-06-02 21:18:56,857] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.16.51460.video000000
+.mp4
+[2017-06-02 21:19:06,296] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+4261101/5000000 [========================>.....] - ETA: 6607s - Loss: 0.0119 - Avg R: -8.4800 - Max R: 1.0000 - eps: 0.1000 - Grads: 0.7481 - Max Q: 0.5186 - lr: 0.0001
+
+[2017-06-02 21:53:15,777] Evaluating...
+[2017-06-02 21:57:31,123] Average reward: -7.24 +/- 0.43
+[2017-06-02 21:57:31,125] Recording...
+[2017-06-02 21:57:31,125] Making new env: IceHockey-v0
+[2017-06-02 21:57:31,169] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.17.51460.video000000
+.mp4
+[2017-06-02 21:57:40,219] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+4511901/5000000 [==========================>...] - ETA: 4368s - Loss: 0.0186 - Avg R: -8.0800 - Max R: -3.0000 - eps: 0.1000 - Grads: 1.1205 - Max Q: 0.5373 - lr: 0.000
+1
+[2017-06-02 22:31:18,777] Evaluating...
+[2017-06-02 22:35:40,387] Average reward: -6.48 +/- 0.43
+[2017-06-02 22:35:40,388] Recording...
+[2017-06-02 22:35:40,388] Making new env: IceHockey-v0
+[2017-06-02 22:35:40,528] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.18.51460.video000000
+.mp4
+[2017-06-02 22:35:49,655] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+4762701/5000000 [===========================>..] - ETA: 2125s - Loss: 0.0060 - Avg R: -8.3400 - Max R: -1.0000 - eps: 0.1000 - Grads: 0.5291 - Max Q: 0.4347 - lr: 0.000
+1
+[2017-06-02 23:09:13,588] Evaluating...
+[2017-06-02 23:13:32,084] Average reward: -5.72 +/- 0.45
+[2017-06-02 23:13:32,086] Recording...
+[2017-06-02 23:13:32,086] Making new env: IceHockey-v0
+[2017-06-02 23:13:32,132] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.19.51460.video000000
+.mp4
+[2017-06-02 23:13:40,920] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')
+5000001/5000000 [==============================] - 44826s - Loss: 0.0085 - Avg R: -8.2600 - Max R: -2.0000 - eps: 0.1000 - Grads: 0.6089 - Max Q: 0.5001 - lr: 0.0001
+
+[2017-06-02 23:45:20,356] - Training done.
+[2017-06-02 23:45:22,830] Evaluating...
+[2017-06-02 23:49:44,363] Average reward: -6.98 +/- 0.46
+[2017-06-02 23:49:44,523] Making new env: IceHockey-v0
+[2017-06-02 23:49:44,567] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/monitor/openaigym.video.20.51460.video000000
+.mp4
+[2017-06-02 23:49:53,866] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/IceHockey_vanilla/mon
+itor')

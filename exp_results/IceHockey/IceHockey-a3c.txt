@@ -1,0 +1,1376 @@
+[32m[1203 11:50:24 @logger.py:74][0m Argv: train-atari.py --env IceHockey-v0 --gpu 0
+[32m[1203 11:50:24 @train-atari.py:216][0m [Batch-A3C] Train on gpu 0 and infer on gpu 0
+[32m[1203 11:50:25 @param.py:189][0m Use train_log/train-atari-IceHockey-v0/hyper.txt to set hyperparam: 'learning_rate'.
+[32m[1203 11:50:25 @param.py:189][0m Use train_log/train-atari-IceHockey-v0/hyper.txt to set hyperparam: 'entropy_beta'.
+[32m[1203 11:50:25 @sesscreate.py:39][0m [5m[31mWRN[0m Some options in custom session config may not work due to TF bugs. See https://github.com/ppwwyyxx/tensorpack/issues/497 for workarounds.
+[32m[1203 11:50:25 @registry.py:121][0m conv0 input: [None, 84, 84, 12]
+[32m[1203 11:50:25 @registry.py:129][0m conv0 output: [None, 84, 84, 32]
+[32m[1203 11:50:25 @registry.py:121][0m pool0 input: [None, 84, 84, 32]
+[32m[1203 11:50:25 @registry.py:129][0m pool0 output: [None, 42, 42, 32]
+[32m[1203 11:50:25 @registry.py:121][0m conv1 input: [None, 42, 42, 32]
+[32m[1203 11:50:25 @registry.py:129][0m conv1 output: [None, 42, 42, 32]
+[32m[1203 11:50:25 @registry.py:121][0m pool1 input: [None, 42, 42, 32]
+[32m[1203 11:50:25 @registry.py:129][0m pool1 output: [None, 21, 21, 32]
+[32m[1203 11:50:25 @registry.py:121][0m conv2 input: [None, 21, 21, 32]
+[32m[1203 11:50:25 @registry.py:129][0m conv2 output: [None, 21, 21, 64]
+[32m[1203 11:50:25 @registry.py:121][0m pool2 input: [None, 21, 21, 64]
+[32m[1203 11:50:25 @registry.py:129][0m pool2 output: [None, 10, 10, 64]
+[32m[1203 11:50:25 @registry.py:121][0m conv3 input: [None, 10, 10, 64]
+[32m[1203 11:50:25 @registry.py:129][0m conv3 output: [None, 10, 10, 64]
+[32m[1203 11:50:25 @registry.py:121][0m fc0 input: [None, 10, 10, 64]
+[32m[1203 11:50:25 @registry.py:129][0m fc0 output: [None, 512]
+[32m[1203 11:50:25 @registry.py:121][0m fc-pi input: [None, 512]
+[32m[1203 11:50:25 @registry.py:129][0m fc-pi output: [None, 18]
+[32m[1203 11:50:25 @registry.py:121][0m fc-v input: [None, 512]
+[32m[1203 11:50:25 @registry.py:129][0m fc-v output: [None, 1]
+[32m[1203 11:50:26 @model_utils.py:47][0m [36mModel Parameters: 
+[0mname           shape               dim
+-------------  --------------  -------
+conv0/W:0      [5, 5, 12, 32]     9600
+conv0/b:0      [32]                 32
+conv1/W:0      [5, 5, 32, 32]    25600
+conv1/b:0      [32]                 32
+conv2/W:0      [4, 4, 32, 64]    32768
+conv2/b:0      [64]                 64
+conv3/W:0      [3, 3, 64, 64]    36864
+conv3/b:0      [64]                 64
+fc0/W:0        [6400, 512]     3276800
+fc0/b:0        [512]               512
+prelu/alpha:0  []                    1
+fc-pi/W:0      [512, 18]          9216
+fc-pi/b:0      [18]                 18
+fc-v/W:0       [512, 1]            512
+fc-v/b:0       [1]                   1[36m
+Total #vars=15, #param=3392084 (12.94 MB assuming all float32)[0m
+[32m[1203 11:50:26 @base.py:158][0m Setup callbacks graph ...
+[32m[1203 11:50:27 @predict.py:51][0m Building predictor tower 'tower-pred-0' on device /gpu:0 ...
+[32m[1203 11:50:27 @summary.py:34][0m Maintain moving average summary of 22 tensors.
+[32m[1203 11:50:27 @base.py:174][0m Creating the session ...
+[32m[1203 11:50:28 @base.py:182][0m Initializing the session ...
+[32m[1203 11:50:28 @base.py:189][0m Graph Finalized.
+[32m[1203 11:50:28 @concurrency.py:36][0m Starting SimulatorMaster ...
+[32m[1203 11:50:28 @base.py:209][0m Start Epoch 1 ...
+[32m[1203 12:09:39 @base.py:219][0m Epoch 1 (global_step 6000) finished, time:1151.31 sec.
+[32m[1203 12:09:39 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-6000.
+[32m[1203 12:14:08 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00039729
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010041
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00021434
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00083377
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00011973
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00048573
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.00013089
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00055615
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 6.6763e-05
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0014532
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00059205
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.012451
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.5479e-05
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00043634
+[32m[1203 12:14:08 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0022259
+[32m[1203 12:14:08 @monitor.py:363][0m cost: -0.027729
+[32m[1203 12:14:08 @monitor.py:363][0m importance: 1
+[32m[1203 12:14:08 @monitor.py:363][0m max_score: 0
+[32m[1203 12:14:08 @monitor.py:363][0m mean_score: -3.48
+[32m[1203 12:14:08 @monitor.py:363][0m policy_loss: -0.35018
+[32m[1203 12:14:08 @monitor.py:363][0m predict_reward: -0.10553
+[32m[1203 12:14:08 @monitor.py:363][0m rms_advantage: 0.073712
+[32m[1203 12:14:08 @monitor.py:363][0m value_loss: 0.49119
+[32m[1203 12:14:08 @monitor.py:363][0m xentropy_loss: -369.03
+[32m[1203 12:14:08 @group.py:42][0m Callbacks took 268.771 sec in total. PeriodicTrigger-Evaluator: 268.620sec
+[32m[1203 12:14:08 @base.py:209][0m Start Epoch 2 ...
+[32m[1203 12:33:02 @base.py:219][0m Epoch 2 (global_step 12000) finished, time:1133.44 sec.
+[32m[1203 12:33:02 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-12000.
+[32m[1203 12:37:35 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00056991
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0015077
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00022041
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011057
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00014075
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00064622
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 0.0001309
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00058157
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.1616e-05
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0016834
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00076659
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.014339
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.8246e-05
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00050068
+[32m[1203 12:37:35 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0033548
+[32m[1203 12:37:35 @monitor.py:363][0m cost: -0.021186
+[32m[1203 12:37:35 @monitor.py:363][0m importance: 0.99984
+[32m[1203 12:37:35 @monitor.py:363][0m max_score: -8
+[32m[1203 12:37:35 @monitor.py:363][0m mean_score: -15.2
+[32m[1203 12:37:35 @monitor.py:363][0m policy_loss: 0.40194
+[32m[1203 12:37:35 @monitor.py:363][0m predict_reward: -0.23617
+[32m[1203 12:37:35 @monitor.py:363][0m rms_advantage: 0.086539
+[32m[1203 12:37:35 @monitor.py:363][0m value_loss: 0.56373
+[32m[1203 12:37:35 @monitor.py:363][0m xentropy_loss: -367.74
+[32m[1203 12:37:35 @group.py:42][0m Callbacks took 273.437 sec in total. PeriodicTrigger-Evaluator: 273.344sec
+[32m[1203 12:37:35 @base.py:209][0m Start Epoch 3 ...
+[32m[1203 12:56:28 @base.py:219][0m Epoch 3 (global_step 18000) finished, time:1133.50 sec.
+[32m[1203 12:56:29 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-18000.
+[32m[1203 13:01:08 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027165
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00081484
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010187
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00076359
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.3234e-05
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00048532
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.9915e-05
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00042438
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 5.6975e-05
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013063
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00043745
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0088666
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.6662e-06
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00032362
+[32m[1203 13:01:08 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0028746
+[32m[1203 13:01:08 @monitor.py:363][0m cost: -0.020868
+[32m[1203 13:01:08 @monitor.py:363][0m importance: 0.99999
+[32m[1203 13:01:08 @monitor.py:363][0m max_score: -13
+[32m[1203 13:01:08 @monitor.py:363][0m mean_score: -17.28
+[32m[1203 13:01:08 @monitor.py:363][0m policy_loss: 0.64152
+[32m[1203 13:01:08 @monitor.py:363][0m predict_reward: -0.15722
+[32m[1203 13:01:08 @monitor.py:363][0m rms_advantage: 0.0671
+[32m[1203 13:01:08 @monitor.py:363][0m value_loss: 0.37947
+[32m[1203 13:01:08 @monitor.py:363][0m xentropy_loss: -369.21
+[32m[1203 13:01:08 @group.py:42][0m Callbacks took 279.454 sec in total. PeriodicTrigger-Evaluator: 279.321sec
+[32m[1203 13:01:08 @base.py:209][0m Start Epoch 4 ...
+[32m[1203 13:20:03 @base.py:219][0m Epoch 4 (global_step 24000) finished, time:1134.66 sec.
+[32m[1203 13:20:03 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-24000.
+[32m[1203 13:24:43 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00033035
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010013
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011358
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00096237
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.0578e-05
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00068298
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.0849e-05
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00069815
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.0011e-05
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0014365
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.0006321
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.013284
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1546e-05
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00043882
+[32m[1203 13:24:43 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0029684
+[32m[1203 13:24:43 @monitor.py:363][0m cost: -0.021902
+[32m[1203 13:24:43 @monitor.py:363][0m importance: 1
+[32m[1203 13:24:43 @monitor.py:363][0m max_score: -11
+[32m[1203 13:24:43 @monitor.py:363][0m mean_score: -17.04
+[32m[1203 13:24:43 @monitor.py:363][0m policy_loss: 0.44034
+[32m[1203 13:24:43 @monitor.py:363][0m predict_reward: -0.2217
+[32m[1203 13:24:43 @monitor.py:363][0m rms_advantage: 0.075931
+[32m[1203 13:24:43 @monitor.py:363][0m value_loss: 0.44274
+[32m[1203 13:24:43 @monitor.py:363][0m xentropy_loss: -368.66
+[32m[1203 13:24:43 @group.py:42][0m Callbacks took 280.333 sec in total. PeriodicTrigger-Evaluator: 280.247sec
+[32m[1203 13:24:43 @base.py:209][0m Start Epoch 5 ...
+[32m[1203 13:43:34 @base.py:219][0m Epoch 5 (global_step 30000) finished, time:1130.98 sec.
+[32m[1203 13:43:34 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-30000.
+[32m[1203 13:48:08 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00029625
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010071
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011057
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00081948
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.2885e-05
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00066643
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.0726e-05
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00063609
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.5059e-05
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0015577
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00055146
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.011072
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1089e-05
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.0004028
+[32m[1203 13:48:08 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0021841
+[32m[1203 13:48:08 @monitor.py:363][0m cost: -0.024735
+[32m[1203 13:48:08 @monitor.py:363][0m importance: 1
+[32m[1203 13:48:08 @monitor.py:363][0m max_score: -9
+[32m[1203 13:48:08 @monitor.py:363][0m mean_score: -13.6
+[32m[1203 13:48:08 @monitor.py:363][0m policy_loss: 0.083807
+[32m[1203 13:48:08 @monitor.py:363][0m predict_reward: -0.25824
+[32m[1203 13:48:08 @monitor.py:363][0m rms_advantage: 0.076444
+[32m[1203 13:48:08 @monitor.py:363][0m value_loss: 0.43684
+[32m[1203 13:48:08 @monitor.py:363][0m xentropy_loss: -368.67
+[32m[1203 13:48:08 @group.py:42][0m Callbacks took 273.900 sec in total. PeriodicTrigger-Evaluator: 273.791sec
+[32m[1203 13:48:08 @base.py:209][0m Start Epoch 6 ...
+[32m[1203 14:06:58 @base.py:219][0m Epoch 6 (global_step 36000) finished, time:1130.57 sec.
+[32m[1203 14:06:58 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-36000.
+[32m[1203 14:11:33 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00038467
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0013088
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012243
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0013903
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.3937e-05
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00108
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.8781e-05
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0012518
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 6.4765e-05
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0016689
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00049167
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.011937
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0222e-05
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00052079
+[32m[1203 14:11:33 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0033923
+[32m[1203 14:11:33 @monitor.py:363][0m cost: -0.026188
+[32m[1203 14:11:33 @monitor.py:363][0m importance: 0.99995
+[32m[1203 14:11:33 @monitor.py:363][0m max_score: -11
+[32m[1203 14:11:33 @monitor.py:363][0m mean_score: -15.2
+[32m[1203 14:11:33 @monitor.py:363][0m policy_loss: -0.18705
+[32m[1203 14:11:33 @monitor.py:363][0m predict_reward: -0.16825
+[32m[1203 14:11:33 @monitor.py:363][0m rms_advantage: 0.083356
+[32m[1203 14:11:33 @monitor.py:363][0m value_loss: 0.52775
+[32m[1203 14:11:33 @monitor.py:363][0m xentropy_loss: -369.27
+[32m[1203 14:11:33 @group.py:42][0m Callbacks took 274.327 sec in total. PeriodicTrigger-Evaluator: 274.193sec
+[32m[1203 14:11:33 @base.py:209][0m Start Epoch 7 ...
+[32m[1203 14:30:22 @base.py:219][0m Epoch 7 (global_step 42000) finished, time:1129.68 sec.
+[32m[1203 14:30:22 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-42000.
+[32m[1203 14:35:00 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00034621
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011207
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011194
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011454
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.4941e-05
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00086749
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.3844e-05
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00083728
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 6.6158e-05
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0015063
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00051068
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0080715
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1728e-05
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00042615
+[32m[1203 14:35:00 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0028935
+[32m[1203 14:35:00 @monitor.py:363][0m cost: -0.022534
+[32m[1203 14:35:00 @monitor.py:363][0m importance: 1
+[32m[1203 14:35:00 @monitor.py:363][0m max_score: -10
+[32m[1203 14:35:00 @monitor.py:363][0m mean_score: -16.76
+[32m[1203 14:35:00 @monitor.py:363][0m policy_loss: 0.40941
+[32m[1203 14:35:00 @monitor.py:363][0m predict_reward: -0.13305
+[32m[1203 14:35:00 @monitor.py:363][0m rms_advantage: 0.072567
+[32m[1203 14:35:00 @monitor.py:363][0m value_loss: 0.39566
+[32m[1203 14:35:00 @monitor.py:363][0m xentropy_loss: -368.94
+[32m[1203 14:35:00 @group.py:42][0m Callbacks took 277.570 sec in total. PeriodicTrigger-Evaluator: 277.460sec
+[32m[1203 14:35:00 @base.py:209][0m Start Epoch 8 ...
+[32m[1203 14:53:49 @base.py:219][0m Epoch 8 (global_step 48000) finished, time:1129.46 sec.
+[32m[1203 14:53:49 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-48000.
+[32m[1203 14:58:30 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00031281
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010187
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012137
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00088602
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.2378e-05
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00070292
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.501e-05
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00078822
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.3219e-05
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0014885
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00064433
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0098004
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1992e-05
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00040526
+[32m[1203 14:58:30 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0025487
+[32m[1203 14:58:30 @monitor.py:363][0m cost: -0.028334
+[32m[1203 14:58:30 @monitor.py:363][0m importance: 1.0002
+[32m[1203 14:58:30 @monitor.py:363][0m max_score: -7
+[32m[1203 14:58:30 @monitor.py:363][0m mean_score: -13.26
+[32m[1203 14:58:30 @monitor.py:363][0m policy_loss: -0.40768
+[32m[1203 14:58:30 @monitor.py:363][0m predict_reward: -0.1598
+[32m[1203 14:58:30 @monitor.py:363][0m rms_advantage: 0.075767
+[32m[1203 14:58:30 @monitor.py:363][0m value_loss: 0.44883
+[32m[1203 14:58:30 @monitor.py:363][0m xentropy_loss: -366.79
+[32m[1203 14:58:30 @group.py:42][0m Callbacks took 281.084 sec in total. PeriodicTrigger-Evaluator: 280.994sec
+[32m[1203 14:58:30 @base.py:209][0m Start Epoch 9 ...
+[32m[1203 15:17:22 @base.py:219][0m Epoch 9 (global_step 54000) finished, time:1131.04 sec.
+[32m[1203 15:17:22 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-54000.
+[32m[1203 15:22:00 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024416
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00082836
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.7594e-05
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00082397
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.1526e-05
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00070138
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.1883e-05
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00076078
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.2913e-05
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013993
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00053205
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0091877
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1499e-05
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00035886
+[32m[1203 15:22:00 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0026106
+[32m[1203 15:22:00 @monitor.py:363][0m cost: -0.028322
+[32m[1203 15:22:00 @monitor.py:363][0m importance: 1
+[32m[1203 15:22:00 @monitor.py:363][0m max_score: -4
+[32m[1203 15:22:00 @monitor.py:363][0m mean_score: -13.5
+[32m[1203 15:22:00 @monitor.py:363][0m policy_loss: -0.32612
+[32m[1203 15:22:00 @monitor.py:363][0m predict_reward: -0.13756
+[32m[1203 15:22:00 @monitor.py:363][0m rms_advantage: 0.071874
+[32m[1203 15:22:00 @monitor.py:363][0m value_loss: 0.38377
+[32m[1203 15:22:00 @monitor.py:363][0m xentropy_loss: -368.29
+[32m[1203 15:22:00 @group.py:42][0m Callbacks took 278.273 sec in total. PeriodicTrigger-Evaluator: 278.166sec
+[32m[1203 15:22:00 @base.py:209][0m Start Epoch 10 ...
+[32m[1203 15:40:50 @base.py:219][0m Epoch 10 (global_step 60000) finished, time:1130.58 sec.
+[32m[1203 15:40:50 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-60000.
+[32m[1203 15:45:37 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00042354
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010198
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00014005
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011983
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.844e-05
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00098468
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 9.073e-05
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0012093
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.9341e-05
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0016817
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00065895
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.012052
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.382e-05
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.0004868
+[32m[1203 15:45:37 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0032356
+[32m[1203 15:45:37 @monitor.py:363][0m cost: -0.021219
+[32m[1203 15:45:37 @monitor.py:363][0m importance: 0.99995
+[32m[1203 15:45:37 @monitor.py:363][0m max_score: -5
+[32m[1203 15:45:37 @monitor.py:363][0m mean_score: -11.94
+[32m[1203 15:45:37 @monitor.py:363][0m policy_loss: 0.38296
+[32m[1203 15:45:37 @monitor.py:363][0m predict_reward: -0.15081
+[32m[1203 15:45:37 @monitor.py:363][0m rms_advantage: 0.086476
+[32m[1203 15:45:37 @monitor.py:363][0m value_loss: 0.58565
+[32m[1203 15:45:37 @monitor.py:363][0m xentropy_loss: -368.47
+[32m[1203 15:45:37 @group.py:42][0m Callbacks took 286.916 sec in total. PeriodicTrigger-Evaluator: 286.816sec
+[32m[1203 15:45:37 @base.py:209][0m Start Epoch 11 ...
+[32m[1203 16:04:27 @base.py:219][0m Epoch 11 (global_step 66000) finished, time:1129.38 sec.
+[32m[1203 16:04:27 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-66000.
+[32m[1203 16:09:11 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00025302
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00091463
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.0001049
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00076974
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.8595e-05
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00064081
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.4207e-05
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00078592
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.617e-05
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0014674
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00062779
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.011471
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1266e-05
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00038128
+[32m[1203 16:09:11 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0017171
+[32m[1203 16:09:11 @monitor.py:363][0m cost: -0.029268
+[32m[1203 16:09:11 @monitor.py:363][0m importance: 1
+[32m[1203 16:09:11 @monitor.py:363][0m max_score: -3
+[32m[1203 16:09:11 @monitor.py:363][0m mean_score: -10.38
+[32m[1203 16:09:11 @monitor.py:363][0m policy_loss: -0.56312
+[32m[1203 16:09:11 @monitor.py:363][0m predict_reward: -0.16371
+[32m[1203 16:09:11 @monitor.py:363][0m rms_advantage: 0.076499
+[32m[1203 16:09:11 @monitor.py:363][0m value_loss: 0.48485
+[32m[1203 16:09:11 @monitor.py:363][0m xentropy_loss: -366.8
+[32m[1203 16:09:11 @group.py:42][0m Callbacks took 284.158 sec in total. PeriodicTrigger-Evaluator: 284.043sec
+[32m[1203 16:09:11 @base.py:209][0m Start Epoch 12 ...
+[32m[1203 16:28:01 @base.py:219][0m Epoch 12 (global_step 72000) finished, time:1130.35 sec.
+[32m[1203 16:28:01 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-72000.
+[32m[1203 16:32:35 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027581
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00082669
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.7915e-05
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0008267
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.5421e-05
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00063367
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.1166e-05
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00066442
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.9142e-05
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013661
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00062073
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.011128
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0412e-05
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00036178
+[32m[1203 16:32:35 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0016102
+[32m[1203 16:32:35 @monitor.py:363][0m cost: -0.027478
+[32m[1203 16:32:35 @monitor.py:363][0m importance: 1.0001
+[32m[1203 16:32:35 @monitor.py:363][0m max_score: -4
+[32m[1203 16:32:35 @monitor.py:363][0m mean_score: -10.58
+[32m[1203 16:32:35 @monitor.py:363][0m policy_loss: -0.23358
+[32m[1203 16:32:35 @monitor.py:363][0m predict_reward: -0.17362
+[32m[1203 16:32:35 @monitor.py:363][0m rms_advantage: 0.069834
+[32m[1203 16:32:35 @monitor.py:363][0m value_loss: 0.38559
+[32m[1203 16:32:35 @monitor.py:363][0m xentropy_loss: -366.92
+[32m[1203 16:32:35 @group.py:42][0m Callbacks took 273.998 sec in total. PeriodicTrigger-Evaluator: 273.902sec
+[32m[1203 16:32:35 @base.py:209][0m Start Epoch 13 ...
+[32m[1203 16:51:26 @base.py:219][0m Epoch 13 (global_step 78000) finished, time:1131.03 sec.
+[32m[1203 16:51:26 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-78000.
+[32m[1203 16:55:43 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0002174
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00067171
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.4856e-05
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0007584
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.3994e-05
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00061233
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.186e-05
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00065071
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.071e-05
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013738
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.0005957
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010084
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0667e-05
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00033541
+[32m[1203 16:55:43 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0018012
+[32m[1203 16:55:43 @monitor.py:363][0m cost: -0.022295
+[32m[1203 16:55:43 @monitor.py:363][0m importance: 1
+[32m[1203 16:55:43 @monitor.py:363][0m max_score: -2
+[32m[1203 16:55:43 @monitor.py:363][0m mean_score: -8.56
+[32m[1203 16:55:43 @monitor.py:363][0m policy_loss: 0.45902
+[32m[1203 16:55:43 @monitor.py:363][0m predict_reward: -0.14215
+[32m[1203 16:55:43 @monitor.py:363][0m rms_advantage: 0.06852
+[32m[1203 16:55:43 @monitor.py:363][0m value_loss: 0.36249
+[32m[1203 16:55:43 @monitor.py:363][0m xentropy_loss: -367.53
+[32m[1203 16:55:43 @group.py:42][0m Callbacks took 256.759 sec in total. PeriodicTrigger-Evaluator: 256.678sec
+[32m[1203 16:55:43 @base.py:209][0m Start Epoch 14 ...
+[32m[1203 17:14:33 @base.py:219][0m Epoch 14 (global_step 84000) finished, time:1130.43 sec.
+[32m[1203 17:14:33 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-84000.
+[32m[1203 17:18:41 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00022688
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00072596
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 8.6217e-05
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00064056
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 6.5951e-05
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00050343
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.5133e-05
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00065356
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.7375e-05
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012028
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00061793
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0093708
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.6631e-06
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00028245
+[32m[1203 17:18:41 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.002132
+[32m[1203 17:18:41 @monitor.py:363][0m cost: -0.029813
+[32m[1203 17:18:41 @monitor.py:363][0m importance: 1
+[32m[1203 17:18:41 @monitor.py:363][0m max_score: -2
+[32m[1203 17:18:41 @monitor.py:363][0m mean_score: -5.8
+[32m[1203 17:18:41 @monitor.py:363][0m policy_loss: -0.46266
+[32m[1203 17:18:41 @monitor.py:363][0m predict_reward: -0.13073
+[32m[1203 17:18:41 @monitor.py:363][0m rms_advantage: 0.062915
+[32m[1203 17:18:41 @monitor.py:363][0m value_loss: 0.31495
+[32m[1203 17:18:41 @monitor.py:363][0m xentropy_loss: -366.84
+[32m[1203 17:18:41 @group.py:42][0m Callbacks took 247.239 sec in total. PeriodicTrigger-Evaluator: 247.143sec
+[32m[1203 17:18:41 @base.py:209][0m Start Epoch 15 ...
+[32m[1203 17:37:31 @base.py:219][0m Epoch 15 (global_step 90000) finished, time:1130.33 sec.
+[32m[1203 17:37:31 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-90000.
+[32m[1203 17:41:43 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024413
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00082834
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.9462e-05
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00068312
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.3173e-05
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0006253
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.8368e-05
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00066978
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.332e-05
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013296
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00061337
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0091331
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0297e-05
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00032468
+[32m[1203 17:41:43 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0025861
+[32m[1203 17:41:43 @monitor.py:363][0m cost: -0.026057
+[32m[1203 17:41:43 @monitor.py:363][0m importance: 1.0001
+[32m[1203 17:41:43 @monitor.py:363][0m max_score: -3
+[32m[1203 17:41:43 @monitor.py:363][0m mean_score: -6.74
+[32m[1203 17:41:43 @monitor.py:363][0m policy_loss: -0.022562
+[32m[1203 17:41:43 @monitor.py:363][0m predict_reward: -0.15364
+[32m[1203 17:41:43 @monitor.py:363][0m rms_advantage: 0.068273
+[32m[1203 17:41:43 @monitor.py:363][0m value_loss: 0.35774
+[32m[1203 17:41:43 @monitor.py:363][0m xentropy_loss: -367.05
+[32m[1203 17:41:43 @group.py:42][0m Callbacks took 251.634 sec in total. PeriodicTrigger-Evaluator: 251.546sec
+[32m[1203 17:41:43 @base.py:209][0m Start Epoch 16 ...
+[32m[1203 18:00:33 @base.py:219][0m Epoch 16 (global_step 96000) finished, time:1130.12 sec.
+[32m[1203 18:00:33 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-96000.
+[32m[1203 18:04:52 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00028451
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00085432
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.1671e-05
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00073676
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.3251e-05
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0005519
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.4872e-05
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0006016
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.0868e-05
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013202
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00066716
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0083184
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.7245e-06
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00026565
+[32m[1203 18:04:52 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0026757
+[32m[1203 18:04:52 @monitor.py:363][0m cost: -0.029849
+[32m[1203 18:04:52 @monitor.py:363][0m importance: 1.0002
+[32m[1203 18:04:52 @monitor.py:363][0m max_score: -2
+[32m[1203 18:04:52 @monitor.py:363][0m mean_score: -7.48
+[32m[1203 18:04:52 @monitor.py:363][0m policy_loss: -0.50961
+[32m[1203 18:04:52 @monitor.py:363][0m predict_reward: -0.14345
+[32m[1203 18:04:52 @monitor.py:363][0m rms_advantage: 0.064174
+[32m[1203 18:04:52 @monitor.py:363][0m value_loss: 0.35618
+[32m[1203 18:04:52 @monitor.py:363][0m xentropy_loss: -366.73
+[32m[1203 18:04:52 @group.py:42][0m Callbacks took 259.311 sec in total. PeriodicTrigger-Evaluator: 259.186sec
+[32m[1203 18:04:52 @base.py:209][0m Start Epoch 17 ...
+[32m[1203 18:23:42 @base.py:219][0m Epoch 17 (global_step 102000) finished, time:1130.20 sec.
+[32m[1203 18:23:42 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-102000.
+[32m[1203 18:27:49 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00026129
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0008918
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010055
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00089695
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.1824e-05
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00066318
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.6598e-05
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00063223
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.9969e-05
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013723
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00060804
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0083069
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0922e-05
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00031671
+[32m[1203 18:27:49 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0023308
+[32m[1203 18:27:49 @monitor.py:363][0m cost: -0.023547
+[32m[1203 18:27:49 @monitor.py:363][0m importance: 0.99994
+[32m[1203 18:27:49 @monitor.py:363][0m max_score: -1
+[32m[1203 18:27:49 @monitor.py:363][0m mean_score: -5.48
+[32m[1203 18:27:49 @monitor.py:363][0m policy_loss: 0.28765
+[32m[1203 18:27:49 @monitor.py:363][0m predict_reward: -0.14232
+[32m[1203 18:27:49 @monitor.py:363][0m rms_advantage: 0.067475
+[32m[1203 18:27:49 @monitor.py:363][0m value_loss: 0.36601
+[32m[1203 18:27:49 @monitor.py:363][0m xentropy_loss: -366.77
+[32m[1203 18:27:49 @group.py:42][0m Callbacks took 247.087 sec in total. PeriodicTrigger-Evaluator: 246.990sec
+[32m[1203 18:27:49 @base.py:209][0m Start Epoch 18 ...
+[32m[1203 18:46:43 @base.py:219][0m Epoch 18 (global_step 108000) finished, time:1133.93 sec.
+[32m[1203 18:46:43 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-108000.
+[32m[1203 18:50:53 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00019359
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0007213
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 8.6177e-05
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0006317
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.0061e-05
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00050199
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.7378e-05
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00057234
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.3178e-05
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011882
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00072953
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0077235
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1253e-05
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025577
+[32m[1203 18:50:53 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0030082
+[32m[1203 18:50:53 @monitor.py:363][0m cost: -0.026284
+[32m[1203 18:50:53 @monitor.py:363][0m importance: 1.0001
+[32m[1203 18:50:53 @monitor.py:363][0m max_score: 0
+[32m[1203 18:50:53 @monitor.py:363][0m mean_score: -2.9
+[32m[1203 18:50:53 @monitor.py:363][0m policy_loss: -0.0012473
+[32m[1203 18:50:53 @monitor.py:363][0m predict_reward: -0.10715
+[32m[1203 18:50:53 @monitor.py:363][0m rms_advantage: 0.060402
+[32m[1203 18:50:53 @monitor.py:363][0m value_loss: 0.29669
+[32m[1203 18:50:53 @monitor.py:363][0m xentropy_loss: -365.99
+[32m[1203 18:50:53 @group.py:42][0m Callbacks took 249.909 sec in total. PeriodicTrigger-Evaluator: 249.819sec
+[32m[1203 18:50:53 @base.py:209][0m Start Epoch 19 ...
+[32m[1203 19:09:51 @base.py:219][0m Epoch 19 (global_step 114000) finished, time:1137.61 sec.
+[32m[1203 19:09:51 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-114000.
+[32m[1203 19:13:51 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00020347
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010296
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.000115
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00076218
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.9324e-05
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0006294
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.1294e-05
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00064765
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.9967e-05
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013572
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00075251
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010392
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0819e-05
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00030817
+[32m[1203 19:13:51 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0023606
+[32m[1203 19:13:51 @monitor.py:363][0m cost: -0.027911
+[32m[1203 19:13:51 @monitor.py:363][0m importance: 1.0001
+[32m[1203 19:13:51 @monitor.py:363][0m max_score: 0
+[32m[1203 19:13:51 @monitor.py:363][0m mean_score: -2.92
+[32m[1203 19:13:51 @monitor.py:363][0m policy_loss: -0.29273
+[32m[1203 19:13:51 @monitor.py:363][0m predict_reward: -0.14791
+[32m[1203 19:13:51 @monitor.py:363][0m rms_advantage: 0.065652
+[32m[1203 19:13:51 @monitor.py:363][0m value_loss: 0.38116
+[32m[1203 19:13:51 @monitor.py:363][0m xentropy_loss: -366.1
+[32m[1203 19:13:51 @group.py:42][0m Callbacks took 240.517 sec in total. PeriodicTrigger-Evaluator: 240.409sec
+[32m[1203 19:13:51 @base.py:209][0m Start Epoch 20 ...
+[32m[1203 19:32:45 @base.py:219][0m Epoch 20 (global_step 120000) finished, time:1133.29 sec.
+[32m[1203 19:32:45 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-120000.
+[32m[1203 19:32:45 @param.py:144][0m After epoch 20, learning_rate will change to 0.00030000
+[32m[1203 19:36:42 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0002022
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00084791
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.7566e-05
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00062531
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 6.8051e-05
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00045289
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.4637e-05
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00052775
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.7316e-05
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011736
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00057734
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0079152
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.5189e-06
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00023202
+[32m[1203 19:36:42 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0027555
+[32m[1203 19:36:42 @monitor.py:363][0m cost: -0.025483
+[32m[1203 19:36:42 @monitor.py:363][0m importance: 1
+[32m[1203 19:36:42 @monitor.py:363][0m max_score: -1
+[32m[1203 19:36:42 @monitor.py:363][0m mean_score: -2.76
+[32m[1203 19:36:42 @monitor.py:363][0m policy_loss: 0.14161
+[32m[1203 19:36:42 @monitor.py:363][0m predict_reward: -0.14643
+[32m[1203 19:36:42 @monitor.py:363][0m rms_advantage: 0.057848
+[32m[1203 19:36:42 @monitor.py:363][0m value_loss: 0.25819
+[32m[1203 19:36:42 @monitor.py:363][0m xentropy_loss: -366.16
+[32m[1203 19:36:42 @group.py:42][0m Callbacks took 237.709 sec in total. PeriodicTrigger-Evaluator: 237.551sec
+[32m[1203 19:36:42 @base.py:209][0m Start Epoch 21 ...
+[32m[1203 19:55:32 @base.py:219][0m Epoch 21 (global_step 126000) finished, time:1129.83 sec.
+[32m[1203 19:55:32 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-126000.
+[32m[1203 19:59:30 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00019667
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00076758
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 8.2204e-05
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00063772
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 6.4964e-05
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0004691
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.5158e-05
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00058565
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.9242e-05
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011164
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00063118
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0088612
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.6013e-06
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024187
+[32m[1203 19:59:30 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0021075
+[32m[1203 19:59:30 @monitor.py:363][0m cost: -0.033476
+[32m[1203 19:59:30 @monitor.py:363][0m importance: 0.99996
+[32m[1203 19:59:30 @monitor.py:363][0m max_score: -1
+[32m[1203 19:59:30 @monitor.py:363][0m mean_score: -4.12
+[32m[1203 19:59:30 @monitor.py:363][0m policy_loss: -0.95538
+[32m[1203 19:59:30 @monitor.py:363][0m predict_reward: -0.10024
+[32m[1203 19:59:30 @monitor.py:363][0m rms_advantage: 0.060809
+[32m[1203 19:59:30 @monitor.py:363][0m value_loss: 0.34174
+[32m[1203 19:59:30 @monitor.py:363][0m xentropy_loss: -367.12
+[32m[1203 19:59:30 @group.py:42][0m Callbacks took 238.148 sec in total. PeriodicTrigger-Evaluator: 238.053sec
+[32m[1203 19:59:30 @base.py:209][0m Start Epoch 22 ...
+[32m[1203 20:18:20 @base.py:219][0m Epoch 22 (global_step 132000) finished, time:1129.90 sec.
+[32m[1203 20:18:20 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-132000.
+[32m[1203 20:22:16 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00019689
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00080015
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 9.8981e-05
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00061716
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.0755e-05
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00043349
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.7223e-05
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00058162
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.6325e-05
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0010982
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00056642
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0072804
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0056e-05
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00021916
+[32m[1203 20:22:16 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.002748
+[32m[1203 20:22:16 @monitor.py:363][0m cost: -0.018365
+[32m[1203 20:22:16 @monitor.py:363][0m importance: 1
+[32m[1203 20:22:16 @monitor.py:363][0m max_score: -1
+[32m[1203 20:22:16 @monitor.py:363][0m mean_score: -2.9
+[32m[1203 20:22:16 @monitor.py:363][0m policy_loss: 1.0681
+[32m[1203 20:22:16 @monitor.py:363][0m predict_reward: -0.08243
+[32m[1203 20:22:16 @monitor.py:363][0m rms_advantage: 0.054142
+[32m[1203 20:22:16 @monitor.py:363][0m value_loss: 0.24846
+[32m[1203 20:22:16 @monitor.py:363][0m xentropy_loss: -366.72
+[32m[1203 20:22:16 @group.py:42][0m Callbacks took 236.039 sec in total. PeriodicTrigger-Evaluator: 235.944sec
+[32m[1203 20:22:16 @base.py:209][0m Start Epoch 23 ...
+[32m[1203 20:41:11 @base.py:219][0m Epoch 23 (global_step 138000) finished, time:1134.38 sec.
+[32m[1203 20:41:11 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-138000.
+[32m[1203 20:45:12 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00021473
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0007927
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.0001056
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00068314
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.6541e-05
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00049371
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.3307e-05
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00053753
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.9209e-05
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011641
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.0006614
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0078038
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1841e-05
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024102
+[32m[1203 20:45:12 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0032125
+[32m[1203 20:45:12 @monitor.py:363][0m cost: -0.021198
+[32m[1203 20:45:12 @monitor.py:363][0m importance: 1
+[32m[1203 20:45:12 @monitor.py:363][0m max_score: -1
+[32m[1203 20:45:12 @monitor.py:363][0m mean_score: -3.96
+[32m[1203 20:45:12 @monitor.py:363][0m policy_loss: 0.67403
+[32m[1203 20:45:12 @monitor.py:363][0m predict_reward: -0.10261
+[32m[1203 20:45:12 @monitor.py:363][0m rms_advantage: 0.059194
+[32m[1203 20:45:12 @monitor.py:363][0m value_loss: 0.26587
+[32m[1203 20:45:12 @monitor.py:363][0m xentropy_loss: -365.32
+[32m[1203 20:45:12 @group.py:42][0m Callbacks took 241.380 sec in total. PeriodicTrigger-Evaluator: 241.305sec
+[32m[1203 20:45:12 @base.py:209][0m Start Epoch 24 ...
+[32m[1203 21:04:11 @base.py:219][0m Epoch 24 (global_step 144000) finished, time:1139.19 sec.
+[32m[1203 21:04:11 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-144000.
+[32m[1203 21:08:12 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00029996
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00096551
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011927
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00082658
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.0988e-05
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00057176
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.1757e-05
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0006991
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00010217
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012806
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00081961
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0090708
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1689e-05
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00026994
+[32m[1203 21:08:12 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0029303
+[32m[1203 21:08:12 @monitor.py:363][0m cost: -0.027548
+[32m[1203 21:08:12 @monitor.py:363][0m importance: 0.99989
+[32m[1203 21:08:12 @monitor.py:363][0m max_score: 0
+[32m[1203 21:08:12 @monitor.py:363][0m mean_score: -3
+[32m[1203 21:08:12 @monitor.py:363][0m policy_loss: -0.24934
+[32m[1203 21:08:12 @monitor.py:363][0m predict_reward: -0.08265
+[32m[1203 21:08:12 @monitor.py:363][0m rms_advantage: 0.064754
+[32m[1203 21:08:12 @monitor.py:363][0m value_loss: 0.37682
+[32m[1203 21:08:12 @monitor.py:363][0m xentropy_loss: -365.37
+[32m[1203 21:08:12 @group.py:42][0m Callbacks took 240.766 sec in total. PeriodicTrigger-Evaluator: 240.625sec
+[32m[1203 21:08:12 @base.py:209][0m Start Epoch 25 ...
+[32m[1203 21:27:11 @base.py:219][0m Epoch 25 (global_step 150000) finished, time:1138.96 sec.
+[32m[1203 21:27:11 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-150000.
+[32m[1203 21:31:07 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027594
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0010702
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011051
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00077256
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.7801e-05
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00059883
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.9591e-05
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00078302
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.7204e-05
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012813
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00083402
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0099558
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1458e-05
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00027926
+[32m[1203 21:31:07 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0029319
+[32m[1203 21:31:07 @monitor.py:363][0m cost: -0.02651
+[32m[1203 21:31:07 @monitor.py:363][0m importance: 1
+[32m[1203 21:31:07 @monitor.py:363][0m max_score: -1
+[32m[1203 21:31:07 @monitor.py:363][0m mean_score: -3.06
+[32m[1203 21:31:07 @monitor.py:363][0m policy_loss: -0.12037
+[32m[1203 21:31:07 @monitor.py:363][0m predict_reward: -0.11789
+[32m[1203 21:31:07 @monitor.py:363][0m rms_advantage: 0.065604
+[32m[1203 21:31:07 @monitor.py:363][0m value_loss: 0.393
+[32m[1203 21:31:07 @monitor.py:363][0m xentropy_loss: -366.59
+[32m[1203 21:31:07 @group.py:42][0m Callbacks took 236.521 sec in total. PeriodicTrigger-Evaluator: 236.435sec
+[32m[1203 21:31:07 @base.py:209][0m Start Epoch 26 ...
+[32m[1203 21:50:06 @base.py:219][0m Epoch 26 (global_step 156000) finished, time:1138.71 sec.
+[32m[1203 21:50:06 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-156000.
+[32m[1203 21:54:05 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024445
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00092429
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010922
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00073303
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.5648e-05
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00051727
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.3966e-05
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.0005161
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.7075e-05
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.001213
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00062893
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0066351
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.0566e-05
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00024326
+[32m[1203 21:54:05 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0016988
+[32m[1203 21:54:05 @monitor.py:363][0m cost: -0.030175
+[32m[1203 21:54:05 @monitor.py:363][0m importance: 0.99992
+[32m[1203 21:54:05 @monitor.py:363][0m max_score: 0
+[32m[1203 21:54:05 @monitor.py:363][0m mean_score: -3.08
+[32m[1203 21:54:05 @monitor.py:363][0m policy_loss: -0.51349
+[32m[1203 21:54:05 @monitor.py:363][0m predict_reward: -0.1241
+[32m[1203 21:54:05 @monitor.py:363][0m rms_advantage: 0.060014
+[32m[1203 21:54:05 @monitor.py:363][0m value_loss: 0.30388
+[32m[1203 21:54:05 @monitor.py:363][0m xentropy_loss: -365.28
+[32m[1203 21:54:05 @group.py:42][0m Callbacks took 239.050 sec in total. PeriodicTrigger-Evaluator: 238.959sec
+[32m[1203 21:54:05 @base.py:209][0m Start Epoch 27 ...
+[32m[1203 22:13:04 @base.py:219][0m Epoch 27 (global_step 162000) finished, time:1139.13 sec.
+[32m[1203 22:13:04 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-162000.
+[32m[1203 22:17:04 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00020654
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00078902
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010747
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00068442
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 7.6246e-05
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00052501
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.4344e-05
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00064635
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.3261e-05
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011458
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00064136
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0080195
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1926e-05
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025612
+[32m[1203 22:17:04 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0037284
+[32m[1203 22:17:04 @monitor.py:363][0m cost: -0.028582
+[32m[1203 22:17:04 @monitor.py:363][0m importance: 0.99998
+[32m[1203 22:17:04 @monitor.py:363][0m max_score: 1
+[32m[1203 22:17:04 @monitor.py:363][0m mean_score: -2.34
+[32m[1203 22:17:04 @monitor.py:363][0m policy_loss: -0.28698
+[32m[1203 22:17:04 @monitor.py:363][0m predict_reward: -0.0428
+[32m[1203 22:17:04 @monitor.py:363][0m rms_advantage: 0.06202
+[32m[1203 22:17:04 @monitor.py:363][0m value_loss: 0.30243
+[32m[1203 22:17:04 @monitor.py:363][0m xentropy_loss: -367.39
+[32m[1203 22:17:04 @group.py:42][0m Callbacks took 239.607 sec in total. PeriodicTrigger-Evaluator: 239.516sec
+[32m[1203 22:17:04 @base.py:209][0m Start Epoch 28 ...
+[32m[1203 22:36:04 @base.py:219][0m Epoch 28 (global_step 168000) finished, time:1140.18 sec.
+[32m[1203 22:36:04 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-168000.
+[32m[1203 22:40:02 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00016359
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00066944
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 8.6827e-05
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00057841
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 6.3675e-05
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00044831
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 5.2897e-05
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00053421
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 7.1939e-05
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0010491
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00053909
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0061272
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.5657e-06
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00021975
+[32m[1203 22:40:02 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0020446
+[32m[1203 22:40:02 @monitor.py:363][0m cost: -0.024908
+[32m[1203 22:40:02 @monitor.py:363][0m importance: 0.99999
+[32m[1203 22:40:02 @monitor.py:363][0m max_score: -1
+[32m[1203 22:40:02 @monitor.py:363][0m mean_score: -3.7
+[32m[1203 22:40:02 @monitor.py:363][0m policy_loss: 0.23246
+[32m[1203 22:40:02 @monitor.py:363][0m predict_reward: -0.11256
+[32m[1203 22:40:02 @monitor.py:363][0m rms_advantage: 0.054515
+[32m[1203 22:40:02 @monitor.py:363][0m value_loss: 0.24965
+[32m[1203 22:40:02 @monitor.py:363][0m xentropy_loss: -367.03
+[32m[1203 22:40:02 @group.py:42][0m Callbacks took 237.841 sec in total. PeriodicTrigger-Evaluator: 237.714sec
+[32m[1203 22:40:02 @base.py:209][0m Start Epoch 29 ...
+[32m[1203 22:59:02 @base.py:219][0m Epoch 29 (global_step 174000) finished, time:1140.08 sec.
+[32m[1203 22:59:02 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-174000.
+[32m[1203 23:03:12 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00021187
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0008172
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011051
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00075056
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.8687e-05
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00055938
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.034e-05
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00059142
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.9414e-05
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011347
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00068415
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0078725
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1543e-05
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025704
+[32m[1203 23:03:12 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0026253
+[32m[1203 23:03:12 @monitor.py:363][0m cost: -0.029873
+[32m[1203 23:03:12 @monitor.py:363][0m importance: 0.99997
+[32m[1203 23:03:12 @monitor.py:363][0m max_score: 0
+[32m[1203 23:03:12 @monitor.py:363][0m mean_score: -5.54
+[32m[1203 23:03:12 @monitor.py:363][0m policy_loss: -0.44802
+[32m[1203 23:03:12 @monitor.py:363][0m predict_reward: -0.094593
+[32m[1203 23:03:12 @monitor.py:363][0m rms_advantage: 0.060882
+[32m[1203 23:03:12 @monitor.py:363][0m value_loss: 0.27664
+[32m[1203 23:03:12 @monitor.py:363][0m xentropy_loss: -365.23
+[32m[1203 23:03:12 @group.py:42][0m Callbacks took 250.440 sec in total. PeriodicTrigger-Evaluator: 250.350sec
+[32m[1203 23:03:12 @base.py:209][0m Start Epoch 30 ...
+[32m[1203 23:22:10 @base.py:219][0m Epoch 30 (global_step 180000) finished, time:1137.79 sec.
+[32m[1203 23:22:10 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-180000.
+[32m[1203 23:26:09 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00029521
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00098099
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010163
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00085918
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.6503e-05
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00061833
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.223e-05
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00063653
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00011388
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013393
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00087149
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010709
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.327e-05
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00028628
+[32m[1203 23:26:09 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0028849
+[32m[1203 23:26:09 @monitor.py:363][0m cost: -0.027104
+[32m[1203 23:26:09 @monitor.py:363][0m importance: 1
+[32m[1203 23:26:09 @monitor.py:363][0m max_score: -1
+[32m[1203 23:26:09 @monitor.py:363][0m mean_score: -4.28
+[32m[1203 23:26:09 @monitor.py:363][0m policy_loss: -0.1684
+[32m[1203 23:26:09 @monitor.py:363][0m predict_reward: -0.077814
+[32m[1203 23:26:09 @monitor.py:363][0m rms_advantage: 0.066579
+[32m[1203 23:26:09 @monitor.py:363][0m value_loss: 0.36158
+[32m[1203 23:26:09 @monitor.py:363][0m xentropy_loss: -366.25
+[32m[1203 23:26:09 @group.py:42][0m Callbacks took 238.751 sec in total. PeriodicTrigger-Evaluator: 238.658sec
+[32m[1203 23:26:09 @base.py:209][0m Start Epoch 31 ...
+[32m[1203 23:45:00 @base.py:219][0m Epoch 31 (global_step 186000) finished, time:1130.50 sec.
+[32m[1203 23:45:00 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-186000.
+[32m[1203 23:48:55 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00021052
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00084266
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011798
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00070578
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.5015e-05
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00056522
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.9295e-05
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00061053
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.9801e-05
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011898
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00070714
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.009993
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1613e-05
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00026111
+[32m[1203 23:48:55 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0032637
+[32m[1203 23:48:55 @monitor.py:363][0m cost: -0.024243
+[32m[1203 23:48:55 @monitor.py:363][0m importance: 1
+[32m[1203 23:48:55 @monitor.py:363][0m max_score: 0
+[32m[1203 23:48:55 @monitor.py:363][0m mean_score: -2.9
+[32m[1203 23:48:55 @monitor.py:363][0m policy_loss: 0.27068
+[32m[1203 23:48:55 @monitor.py:363][0m predict_reward: -0.090973
+[32m[1203 23:48:55 @monitor.py:363][0m rms_advantage: 0.060229
+[32m[1203 23:48:55 @monitor.py:363][0m value_loss: 0.29143
+[32m[1203 23:48:55 @monitor.py:363][0m xentropy_loss: -366.52
+[32m[1203 23:48:55 @group.py:42][0m Callbacks took 235.894 sec in total. PeriodicTrigger-Evaluator: 235.816sec
+[32m[1203 23:48:55 @base.py:209][0m Start Epoch 32 ...
+[32m[1204 00:07:46 @base.py:219][0m Epoch 32 (global_step 192000) finished, time:1131.07 sec.
+[32m[1204 00:07:47 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-192000.
+[32m[1204 00:11:43 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00036619
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011573
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00017622
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0011039
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00012568
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00078539
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 9.599e-05
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00075791
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00012956
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0015593
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00092138
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010005
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.6032e-05
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00035162
+[32m[1204 00:11:43 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0041229
+[32m[1204 00:11:43 @monitor.py:363][0m cost: -0.027243
+[32m[1204 00:11:43 @monitor.py:363][0m importance: 1
+[32m[1204 00:11:43 @monitor.py:363][0m max_score: -1
+[32m[1204 00:11:43 @monitor.py:363][0m mean_score: -3.44
+[32m[1204 00:11:43 @monitor.py:363][0m policy_loss: -0.33397
+[32m[1204 00:11:43 @monitor.py:363][0m predict_reward: -0.072246
+[32m[1204 00:11:43 @monitor.py:363][0m rms_advantage: 0.078841
+[32m[1204 00:11:43 @monitor.py:363][0m value_loss: 0.49277
+[32m[1204 00:11:43 @monitor.py:363][0m xentropy_loss: -364.59
+[32m[1204 00:11:43 @group.py:42][0m Callbacks took 236.871 sec in total. PeriodicTrigger-Evaluator: 236.778sec
+[32m[1204 00:11:43 @base.py:209][0m Start Epoch 33 ...
+[32m[1204 00:30:33 @base.py:219][0m Epoch 33 (global_step 198000) finished, time:1129.74 sec.
+[32m[1204 00:30:33 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-198000.
+[32m[1204 00:34:33 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024672
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00090857
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012032
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00086385
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.2011e-05
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00064456
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.6627e-05
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00074405
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.5635e-05
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.00125
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00071405
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0067264
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.2453e-05
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.0002688
+[32m[1204 00:34:33 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0036565
+[32m[1204 00:34:33 @monitor.py:363][0m cost: -0.026097
+[32m[1204 00:34:33 @monitor.py:363][0m importance: 1
+[32m[1204 00:34:33 @monitor.py:363][0m max_score: 2
+[32m[1204 00:34:33 @monitor.py:363][0m mean_score: -2.6
+[32m[1204 00:34:33 @monitor.py:363][0m policy_loss: 0.033853
+[32m[1204 00:34:33 @monitor.py:363][0m predict_reward: -0.10526
+[32m[1204 00:34:33 @monitor.py:363][0m rms_advantage: 0.059735
+[32m[1204 00:34:33 @monitor.py:363][0m value_loss: 0.28924
+[32m[1204 00:34:33 @monitor.py:363][0m xentropy_loss: -366.35
+[32m[1204 00:34:33 @group.py:42][0m Callbacks took 239.956 sec in total. PeriodicTrigger-Evaluator: 239.811sec
+[32m[1204 00:34:33 @base.py:209][0m Start Epoch 34 ...
+[32m[1204 00:53:23 @base.py:219][0m Epoch 34 (global_step 204000) finished, time:1130.23 sec.
+[32m[1204 00:53:23 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-204000.
+[32m[1204 00:57:21 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00029084
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0009994
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00014036
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00093762
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00010535
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00067006
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 8.0626e-05
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00081472
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00011375
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013432
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00091128
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010255
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.329e-05
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00030607
+[32m[1204 00:57:21 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0029462
+[32m[1204 00:57:21 @monitor.py:363][0m cost: -0.030997
+[32m[1204 00:57:21 @monitor.py:363][0m importance: 1
+[32m[1204 00:57:21 @monitor.py:363][0m max_score: 0
+[32m[1204 00:57:21 @monitor.py:363][0m mean_score: -3.38
+[32m[1204 00:57:21 @monitor.py:363][0m policy_loss: -0.74128
+[32m[1204 00:57:21 @monitor.py:363][0m predict_reward: -0.1216
+[32m[1204 00:57:21 @monitor.py:363][0m rms_advantage: 0.071351
+[32m[1204 00:57:21 @monitor.py:363][0m value_loss: 0.42836
+[32m[1204 00:57:21 @monitor.py:363][0m xentropy_loss: -365.47
+[32m[1204 00:57:21 @group.py:42][0m Callbacks took 237.703 sec in total. PeriodicTrigger-Evaluator: 237.610sec
+[32m[1204 00:57:21 @base.py:209][0m Start Epoch 35 ...
+[32m[1204 01:16:12 @base.py:219][0m Epoch 35 (global_step 210000) finished, time:1130.74 sec.
+[32m[1204 01:16:12 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-210000.
+[32m[1204 01:20:13 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00036267
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00097396
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00013976
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00089355
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00010981
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00067814
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 8.4444e-05
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00075544
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00011613
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013823
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00085198
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0084237
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.4572e-05
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00031377
+[32m[1204 01:20:13 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0035922
+[32m[1204 01:20:13 @monitor.py:363][0m cost: -0.029263
+[32m[1204 01:20:13 @monitor.py:363][0m importance: 1
+[32m[1204 01:20:13 @monitor.py:363][0m max_score: 0
+[32m[1204 01:20:13 @monitor.py:363][0m mean_score: -3.04
+[32m[1204 01:20:13 @monitor.py:363][0m policy_loss: -0.50264
+[32m[1204 01:20:13 @monitor.py:363][0m predict_reward: -0.10076
+[32m[1204 01:20:13 @monitor.py:363][0m rms_advantage: 0.072701
+[32m[1204 01:20:13 @monitor.py:363][0m value_loss: 0.41451
+[32m[1204 01:20:13 @monitor.py:363][0m xentropy_loss: -365.75
+[32m[1204 01:20:13 @group.py:42][0m Callbacks took 241.053 sec in total. PeriodicTrigger-Evaluator: 240.954sec
+[32m[1204 01:20:13 @base.py:209][0m Start Epoch 36 ...
+[32m[1204 01:39:04 @base.py:219][0m Epoch 36 (global_step 216000) finished, time:1131.30 sec.
+[32m[1204 01:39:04 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-216000.
+[32m[1204 01:43:03 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00022609
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00079956
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010682
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00080175
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.381e-05
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0005991
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 8.0874e-05
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00067852
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.9967e-05
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0013433
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00082086
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010643
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.4746e-05
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00030614
+[32m[1204 01:43:03 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.004161
+[32m[1204 01:43:03 @monitor.py:363][0m cost: -0.022908
+[32m[1204 01:43:03 @monitor.py:363][0m importance: 1
+[32m[1204 01:43:03 @monitor.py:363][0m max_score: 0
+[32m[1204 01:43:03 @monitor.py:363][0m mean_score: -3.18
+[32m[1204 01:43:03 @monitor.py:363][0m policy_loss: 0.39175
+[32m[1204 01:43:03 @monitor.py:363][0m predict_reward: -0.05559
+[32m[1204 01:43:03 @monitor.py:363][0m rms_advantage: 0.065663
+[32m[1204 01:43:03 @monitor.py:363][0m value_loss: 0.34079
+[32m[1204 01:43:03 @monitor.py:363][0m xentropy_loss: -366.48
+[32m[1204 01:43:03 @group.py:42][0m Callbacks took 239.087 sec in total. PeriodicTrigger-Evaluator: 239.007sec
+[32m[1204 01:43:03 @base.py:209][0m Start Epoch 37 ...
+[32m[1204 02:01:56 @base.py:219][0m Epoch 37 (global_step 222000) finished, time:1132.39 sec.
+[32m[1204 02:01:56 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-222000.
+[32m[1204 02:05:51 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0002722
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00085452
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010581
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00080958
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.1103e-05
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00056733
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.4199e-05
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00059831
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 6.8755e-05
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011166
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00047903
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0065474
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 9.3336e-06
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.0002443
+[32m[1204 02:05:51 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0027741
+[32m[1204 02:05:51 @monitor.py:363][0m cost: -0.017837
+[32m[1204 02:05:51 @monitor.py:363][0m importance: 1
+[32m[1204 02:05:51 @monitor.py:363][0m max_score: 0
+[32m[1204 02:05:51 @monitor.py:363][0m mean_score: -2.46
+[32m[1204 02:05:51 @monitor.py:363][0m policy_loss: 1.1353
+[32m[1204 02:05:51 @monitor.py:363][0m predict_reward: -0.092351
+[32m[1204 02:05:51 @monitor.py:363][0m rms_advantage: 0.056969
+[32m[1204 02:05:51 @monitor.py:363][0m value_loss: 0.25168
+[32m[1204 02:05:51 @monitor.py:363][0m xentropy_loss: -367.01
+[32m[1204 02:05:51 @group.py:42][0m Callbacks took 235.278 sec in total. PeriodicTrigger-Evaluator: 235.148sec
+[32m[1204 02:05:51 @base.py:209][0m Start Epoch 38 ...
+[32m[1204 02:24:43 @base.py:219][0m Epoch 38 (global_step 228000) finished, time:1131.90 sec.
+[32m[1204 02:24:43 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-228000.
+[32m[1204 02:28:41 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027178
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00085044
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010708
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00078025
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.4512e-05
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00051226
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 6.8887e-05
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00063911
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.5641e-05
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012044
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00061376
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0071841
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.2076e-05
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025881
+[32m[1204 02:28:41 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0031801
+[32m[1204 02:28:41 @monitor.py:363][0m cost: -0.023197
+[32m[1204 02:28:41 @monitor.py:363][0m importance: 0.99999
+[32m[1204 02:28:41 @monitor.py:363][0m max_score: 1
+[32m[1204 02:28:41 @monitor.py:363][0m mean_score: -2.64
+[32m[1204 02:28:41 @monitor.py:363][0m policy_loss: 0.43613
+[32m[1204 02:28:41 @monitor.py:363][0m predict_reward: -0.066577
+[32m[1204 02:28:41 @monitor.py:363][0m rms_advantage: 0.059436
+[32m[1204 02:28:41 @monitor.py:363][0m value_loss: 0.26169
+[32m[1204 02:28:41 @monitor.py:363][0m xentropy_loss: -366.7
+[32m[1204 02:28:41 @group.py:42][0m Callbacks took 238.386 sec in total. PeriodicTrigger-Evaluator: 238.288sec
+[32m[1204 02:28:41 @base.py:209][0m Start Epoch 39 ...
+[32m[1204 02:47:32 @base.py:219][0m Epoch 39 (global_step 234000) finished, time:1131.24 sec.
+[32m[1204 02:47:32 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-234000.
+[32m[1204 02:51:32 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.0002155
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00073563
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00010886
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00073759
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 8.5691e-05
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00053637
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.1269e-05
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00058385
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 8.4727e-05
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012747
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00056323
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0085101
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.2629e-05
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00026572
+[32m[1204 02:51:32 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0033615
+[32m[1204 02:51:32 @monitor.py:363][0m cost: -0.027794
+[32m[1204 02:51:32 @monitor.py:363][0m importance: 1
+[32m[1204 02:51:32 @monitor.py:363][0m max_score: 0
+[32m[1204 02:51:32 @monitor.py:363][0m mean_score: -2.66
+[32m[1204 02:51:32 @monitor.py:363][0m policy_loss: -0.20825
+[32m[1204 02:51:32 @monitor.py:363][0m predict_reward: -0.063659
+[32m[1204 02:51:32 @monitor.py:363][0m rms_advantage: 0.062792
+[32m[1204 02:51:32 @monitor.py:363][0m value_loss: 0.32958
+[32m[1204 02:51:32 @monitor.py:363][0m xentropy_loss: -367.89
+[32m[1204 02:51:32 @group.py:42][0m Callbacks took 240.085 sec in total. PeriodicTrigger-Evaluator: 239.962sec
+[32m[1204 02:51:32 @base.py:209][0m Start Epoch 40 ...
+[32m[1204 03:10:26 @base.py:219][0m Epoch 40 (global_step 240000) finished, time:1133.49 sec.
+[32m[1204 03:10:26 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-240000.
+[32m[1204 03:14:22 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00027702
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011056
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00013996
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00083008
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00010249
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00057353
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.579e-05
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00057953
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.611e-05
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011431
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00066527
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0076104
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1648e-05
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025061
+[32m[1204 03:14:22 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0027692
+[32m[1204 03:14:22 @monitor.py:363][0m cost: -0.029058
+[32m[1204 03:14:22 @monitor.py:363][0m importance: 1
+[32m[1204 03:14:22 @monitor.py:363][0m max_score: -1
+[32m[1204 03:14:22 @monitor.py:363][0m mean_score: -3.32
+[32m[1204 03:14:22 @monitor.py:363][0m policy_loss: -0.33538
+[32m[1204 03:14:22 @monitor.py:363][0m predict_reward: -0.090087
+[32m[1204 03:14:22 @monitor.py:363][0m rms_advantage: 0.059109
+[32m[1204 03:14:22 @monitor.py:363][0m value_loss: 0.27199
+[32m[1204 03:14:22 @monitor.py:363][0m xentropy_loss: -365.61
+[32m[1204 03:14:22 @group.py:42][0m Callbacks took 236.010 sec in total. PeriodicTrigger-Evaluator: 235.904sec
+[32m[1204 03:14:22 @base.py:209][0m Start Epoch 41 ...
+[32m[1204 03:33:14 @base.py:219][0m Epoch 41 (global_step 246000) finished, time:1131.99 sec.
+[32m[1204 03:33:14 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-246000.
+[32m[1204 03:37:11 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00033126
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0012115
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00014296
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.0010202
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00011423
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00072122
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 9.0833e-05
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00077356
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00012089
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.001398
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00092342
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0090524
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.5117e-05
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00031376
+[32m[1204 03:37:11 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0032972
+[32m[1204 03:37:11 @monitor.py:363][0m cost: -0.03448
+[32m[1204 03:37:11 @monitor.py:363][0m importance: 0.99999
+[32m[1204 03:37:11 @monitor.py:363][0m max_score: 0
+[32m[1204 03:37:11 @monitor.py:363][0m mean_score: -3.06
+[32m[1204 03:37:11 @monitor.py:363][0m policy_loss: -1.166
+[32m[1204 03:37:11 @monitor.py:363][0m predict_reward: -0.091614
+[32m[1204 03:37:11 @monitor.py:363][0m rms_advantage: 0.06958
+[32m[1204 03:37:11 @monitor.py:363][0m value_loss: 0.40091
+[32m[1204 03:37:11 @monitor.py:363][0m xentropy_loss: -364.83
+[32m[1204 03:37:11 @group.py:42][0m Callbacks took 236.650 sec in total. PeriodicTrigger-Evaluator: 236.515sec
+[32m[1204 03:37:11 @base.py:209][0m Start Epoch 42 ...
+[32m[1204 03:56:02 @base.py:219][0m Epoch 42 (global_step 252000) finished, time:1131.06 sec.
+[32m[1204 03:56:02 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-252000.
+[32m[1204 03:59:57 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00031238
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.0011421
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012928
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00098313
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00010915
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.0006894
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 8.9851e-05
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00074409
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00011167
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012975
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00087121
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0086385
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.3591e-05
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.000279
+[32m[1204 03:59:57 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0034769
+[32m[1204 03:59:57 @monitor.py:363][0m cost: -0.026786
+[32m[1204 03:59:57 @monitor.py:363][0m importance: 1
+[32m[1204 03:59:57 @monitor.py:363][0m max_score: 1
+[32m[1204 03:59:57 @monitor.py:363][0m mean_score: -2.68
+[32m[1204 03:59:57 @monitor.py:363][0m policy_loss: -0.14947
+[32m[1204 03:59:57 @monitor.py:363][0m predict_reward: -0.08918
+[32m[1204 03:59:57 @monitor.py:363][0m rms_advantage: 0.066983
+[32m[1204 03:59:57 @monitor.py:363][0m value_loss: 0.36152
+[32m[1204 03:59:57 @monitor.py:363][0m xentropy_loss: -364.06
+[32m[1204 03:59:57 @group.py:42][0m Callbacks took 235.244 sec in total. PeriodicTrigger-Evaluator: 235.151sec
+[32m[1204 03:59:57 @base.py:209][0m Start Epoch 43 ...
+[32m[1204 04:18:49 @base.py:219][0m Epoch 43 (global_step 258000) finished, time:1131.73 sec.
+[32m[1204 04:18:49 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-258000.
+[32m[1204 04:22:44 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024305
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00086664
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00011806
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00082384
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.1051e-05
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00059588
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.3071e-05
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00061254
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00010459
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.001275
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00076079
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0080228
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.1793e-05
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00025356
+[32m[1204 04:22:44 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0033541
+[32m[1204 04:22:44 @monitor.py:363][0m cost: -0.030192
+[32m[1204 04:22:44 @monitor.py:363][0m importance: 1
+[32m[1204 04:22:44 @monitor.py:363][0m max_score: 0
+[32m[1204 04:22:44 @monitor.py:363][0m mean_score: -2.82
+[32m[1204 04:22:44 @monitor.py:363][0m policy_loss: -0.55896
+[32m[1204 04:22:44 @monitor.py:363][0m predict_reward: -0.083893
+[32m[1204 04:22:44 @monitor.py:363][0m rms_advantage: 0.061319
+[32m[1204 04:22:44 @monitor.py:363][0m value_loss: 0.34524
+[32m[1204 04:22:44 @monitor.py:363][0m xentropy_loss: -365.08
+[32m[1204 04:22:44 @group.py:42][0m Callbacks took 235.549 sec in total. PeriodicTrigger-Evaluator: 235.466sec
+[32m[1204 04:22:44 @base.py:209][0m Start Epoch 44 ...
+[32m[1204 04:41:35 @base.py:219][0m Epoch 44 (global_step 264000) finished, time:1130.54 sec.
+[32m[1204 04:41:35 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-264000.
+[32m[1204 04:45:33 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00024666
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00094616
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00012461
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00087241
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 9.7059e-05
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00061951
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 7.8527e-05
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00069471
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 9.1648e-05
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0012351
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00065545
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.0088271
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.3216e-05
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00027639
+[32m[1204 04:45:33 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0034937
+[32m[1204 04:45:33 @monitor.py:363][0m cost: -0.021827
+[32m[1204 04:45:33 @monitor.py:363][0m importance: 0.99999
+[32m[1204 04:45:33 @monitor.py:363][0m max_score: 2
+[32m[1204 04:45:33 @monitor.py:363][0m mean_score: -2.44
+[32m[1204 04:45:33 @monitor.py:363][0m policy_loss: 0.56543
+[32m[1204 04:45:33 @monitor.py:363][0m predict_reward: -0.094588
+[32m[1204 04:45:33 @monitor.py:363][0m rms_advantage: 0.062793
+[32m[1204 04:45:33 @monitor.py:363][0m value_loss: 0.29884
+[32m[1204 04:45:33 @monitor.py:363][0m xentropy_loss: -365.81
+[32m[1204 04:45:33 @group.py:42][0m Callbacks took 238.759 sec in total. PeriodicTrigger-Evaluator: 238.659sec
+[32m[1204 04:45:33 @base.py:209][0m Start Epoch 45 ...
+[32m[1204 05:04:25 @base.py:219][0m Epoch 45 (global_step 270000) finished, time:1131.08 sec.
+[32m[1204 05:04:25 @saver.py:82][0m Model saved to train_log/train-atari-IceHockey-v0/model-270000.
+[32m[1204 05:08:24 @common.py:86][0m Waiting for all the workers to finish the last run...
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv0/W/rms: 0.00025713
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv0/b/rms: 0.00098051
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv1/W/rms: 0.00013023
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv1/b/rms: 0.00086329
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv2/W/rms: 0.00010019
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv2/b/rms: 0.00065758
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv3/W/rms: 8.2148e-05
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/conv3/b/rms: 0.00069077
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc-pi/W/rms: 0.00012309
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc-pi/b/rms: 0.0011816
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc-v/W/rms: 0.00093428
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc-v/b/rms: 0.010069
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc0/W/rms: 1.4407e-05
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/fc0/b/rms: 0.00027468
+[32m[1204 05:08:24 @monitor.py:363][0m SummaryGradient/prelu/alpha/rms: 0.0037627
+[32m[1204 05:08:24 @monitor.py:363][0m cost: -0.023226
+[32m[1204 05:08:24 @monitor.py:363][0m importance: 0.99999
+[32m[1204 05:08:24 @monitor.py:363][0m max_score: 0
+[32m[1204 05:08:24 @monitor.py:363][0m mean_score: -2.88
+[32m[1204 05:08:24 @monitor.py:363][0m policy_loss: 0.3639
+[32m[1204 05:08:24 @monitor.py:363][0m predict_reward: -0.062761
+[32m[1204 05:08:24 @monitor.py:363][0m rms_advantage: 0.060888
+[32m[1204 05:08:24 @monitor.py:363][0m value_loss: 0.31099
+[32m[1204 05:08:24 @monitor.py:363][0m xentropy_loss: -364.78
+[32m[1204 05:08:24 @group.py:42][0m Callbacks took 239.005 sec in total. PeriodicTrigger-Evaluator: 238.886sec
+[32m[1204 05:08:24 @base.py:209][0m Start Epoch 46 ...
+[32m[1204 05:09:46 @base.py:227][0m Detected Ctrl-C and exiting main loop.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-41' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-13' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-15' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-5' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-47' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-45' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-22' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-26' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-14' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-17' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-42' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-37' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-34' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-43' cancelled.
+[32m[1204 05:09:46 @train-atari.py:166][0m Client b'simulator-28' cancelled.
+[32m[1204 05:09:46 @concurrency.py:97][0m [5m[31mWRN[0m In PredictorWorkerThread id=2, call was cancelled.
+[32m[1204 05:09:46 @simulator.py:160][0m [Simulator] Context was terminated.

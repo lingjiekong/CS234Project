@@ -1,0 +1,22 @@
+======== Files ========
+
+env-dqn.txt: DQN experiment result. 20 epoch, ~11 hours, ~30 min/epoch, 5000000 step/epoch
+
+env-a3c.txt: A3C (vanilla) experiment result. 30~45 epoch, 12~15 hours, ~18 min/epoch, 6000 step/epoch
+
+env-a3c-double.txt: Double A3C (different parameters for V1/V2 output layer) experiment result: 30~45 epoch, 12~15 hours, ~18 min/epoch, 6000 step/epoch
+
+env-a3c.txt-double-shared: Double A3C (share paras of the first 3 conv layers; different paras for 1 convolutional, 1 fully connected, 1 output layer, using concat + fully connected to get policy) experiment result: 30~45 epoch. 12~15 hours, ~20 min/epoch, 6000 step/epoch
+
+env-ac3-double-no-shared: Double A3C (no shared NN)
+
+
+======== Experiment Details ========
+
+IceHockey-a3c.txt-double-shared is still runnning. The results will be ready by next morning.
+
+We can use mean score as performance. When comparing A3C algorithms, we can use epochs or steps as x-axis. When comparing A3C's to DQN, we can use runtime as x-axis. Performance details can be found in each file.
+
+Runtime details can be found in each file. Different experiments have different number of epochs and runtime. Feel free to truncate the experiment if needed. But I think it's ok to have curves with different lengths (different number of epochs/runtime) on the same plot when comparing.
+
+I have not drawn the plots yet. Feel free to use plotting codes in "my_plot.py".

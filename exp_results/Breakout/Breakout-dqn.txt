@@ -1,0 +1,237 @@
+yolandaw@yolandaw:~/yangxin/DQN-cs234$ python q5_train_atari_nature.py
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.8.0 locally
+[2017-05-31 20:38:11,954] Making new env: Breakout-v0
+Nature model
+Nature model
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could s
+peed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could
+ speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could
+ speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could sp
+eed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could s
+peed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could sp
+eed up CPU computations.
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties:
+name: Tesla M60
+major: 5 minor: 2 memoryClockRate (GHz) 1.1775
+pciBusID b14d:00:00.0
+Total memory: 7.93GiB
+Free memory: 7.86GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla M60, pci bus id: b14d:00:00.0)
+[2017-05-31 20:38:33,012] Making new env: Breakout-v0
+[2017-05-31 20:38:33,039] Creating monitor directory results/Breakout_vanilla/monitor/
+[2017-05-31 20:38:33,051] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.0.34523.video000000.m
+p4
+[2017-05-31 20:38:51,821] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+[2017-05-31 20:38:51,821] Evaluating...
+[2017-05-31 20:39:24,102] Average reward: 2.42 +/- 0.13
+ 250001/5000000 [>.............................] - ETA: 33314s - Loss: 0.0106 - Avg R: 2.1400 - Max R: 6.0000 - eps: 0.7750 - Grads: 0.2876 - Max Q: 1.3987 - lr: 0.0002
+
+[2017-05-31 21:08:37,768] Evaluating...
+[2017-05-31 21:09:18,514] Average reward: 11.18 +/- 0.53
+[2017-05-31 21:09:18,514] Recording...
+[2017-05-31 21:09:18,514] Making new env: Breakout-v0
+[2017-05-31 21:09:18,550] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.1.34523.video000000.m
+p4
+[2017-05-31 21:09:19,711] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+ 500101/5000000 [==>...........................] - ETA: 33410s - Loss: 0.0701 - Avg R: 5.6800 - Max R: 18.0000 - eps: 0.5499 - Grads: 1.4151 - Max Q: 3.3996 - lr: 0.000
+2
+[2017-05-31 21:41:17,235] Evaluating...
+[2017-05-31 21:42:00,810] Average reward: 13.02 +/- 0.51
+[2017-05-31 21:42:00,811] Recording...
+[2017-05-31 21:42:00,811] Making new env: Breakout-v0
+[2017-05-31 21:42:00,848] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.2.34523.video000000.m
+p4
+[2017-05-31 21:42:03,133] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+ 750101/5000000 [===>..........................] - ETA: 32115s - Loss: 0.0745 - Avg R: 6.4800 - Max R: 15.0000 - eps: 0.3249 - Grads: 2.2961 - Max Q: 5.4203 - lr: 0.000
+2
+[2017-05-31 22:13:52,862] Evaluating...
+[2017-05-31 22:14:31,479] Average reward: 9.70 +/- 0.58
+[2017-05-31 22:14:31,480] Recording...
+[2017-05-31 22:14:31,480] Making new env: Breakout-v0
+[2017-05-31 22:14:31,516] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.3.34523.video000000.m
+p4
+[2017-05-31 22:14:32,808] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+1000201/5000000 [=====>........................] - ETA: 30430s - Loss: 0.2611 - Avg R: 9.8400 - Max R: 18.0000 - eps: 0.1000 - Grads: 6.0285 - Max Q: 6.4536 - lr: 0.000
+2
+[2017-05-31 22:46:14,037] Evaluating...
+[2017-05-31 22:46:55,473] Average reward: 10.06 +/- 0.50
+[2017-05-31 22:46:55,474] Recording...
+[2017-05-31 22:46:55,474] Making new env: Breakout-v0
+[2017-05-31 22:46:55,510] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.4.34523.video000000.m
+p4
+[2017-05-31 22:46:56,659] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+1250201/5000000 [======>.......................] - ETA: 28663s - Loss: 0.1220 - Avg R: 8.4200 - Max R: 20.0000 - eps: 0.1000 - Grads: 4.4467 - Max Q: 8.0197 - lr: 0.000
+1
+[2017-05-31 23:18:41,286] Evaluating...
+[2017-05-31 23:19:23,388] Average reward: 9.30 +/- 0.69
+[2017-05-31 23:19:23,389] Recording...
+[2017-05-31 23:19:23,389] Making new env: Breakout-v0
+[2017-05-31 23:19:23,424] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.5.34523.video000000.m
+p4
+[2017-05-31 23:19:25,329] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+1500301/5000000 [========>.....................] - ETA: 26836s - Loss: 0.0927 - Avg R: 8.2400 - Max R: 22.0000 - eps: 0.1000 - Grads: 3.9583 - Max Q: 9.0832 - lr: 0.000
+1
+[2017-05-31 23:51:09,404] Evaluating...
+[2017-05-31 23:51:51,594] Average reward: 10.72 +/- 0.73
+[2017-05-31 23:51:51,594] Recording...
+[2017-05-31 23:51:51,594] Making new env: Breakout-v0
+[2017-05-31 23:51:51,630] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.6.34523.video000000.m
+p4
+[2017-05-31 23:51:53,345] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+1750401/5000000 [=========>....................] - ETA: 24980s - Loss: 0.1153 - Avg R: 9.5800 - Max R: 20.0000 - eps: 0.1000 - Grads: 2.4812 - Max Q: 8.5473 - lr: 0.000
+1
+[2017-06-01 00:23:40,102] Evaluating...
+[2017-06-01 00:24:19,084] Average reward: 11.28 +/- 0.70
+[2017-06-01 00:24:19,085] Recording...
+[2017-06-01 00:24:19,085] Making new env: Breakout-v0
+[2017-06-01 00:24:19,122] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.7.34523.video000000.m
+p4
+[2017-06-01 00:24:20,252] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+2000501/5000000 [===========>..................] - ETA: 23092s - Loss: 0.0657 - Avg R: 10.5800 - Max R: 31.0000 - eps: 0.1000 - Grads: 2.6568 - Max Q: 7.5922 - lr: 0.00
+01
+[2017-06-01 00:56:05,453] Evaluating...
+[2017-06-01 00:56:42,804] Average reward: 10.64 +/- 0.58
+[2017-06-01 00:56:42,804] Recording...
+[2017-06-01 00:56:42,804] Making new env: Breakout-v0
+[2017-06-01 00:56:42,840] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.8.34523.video000000.m
+p4
+[2017-06-01 00:56:44,028] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+2250501/5000000 [============>.................] - ETA: 21185s - Loss: 0.0904 - Avg R: 10.4000 - Max R: 20.0000 - eps: 0.1000 - Grads: 3.2911 - Max Q: 8.3492 - lr: 0.00
+01
+[2017-06-01 01:28:25,609] Evaluating...
+[2017-06-01 01:29:06,265] Average reward: 13.54 +/- 0.81
+[2017-06-01 01:29:06,265] Recording...
+[2017-06-01 01:29:06,265] Making new env: Breakout-v0
+[2017-06-01 01:29:06,302] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.9.34523.video000000.m
+p4
+[2017-06-01 01:29:08,028] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+2500601/5000000 [==============>...............] - ETA: 19284s - Loss: 0.1006 - Avg R: 11.6600 - Max R: 24.0000 - eps: 0.1000 - Grads: 5.3853 - Max Q: 8.2651 - lr: 0.00
+01
+[2017-06-01 02:00:57,929] Evaluating...
+[2017-06-01 02:01:38,517] Average reward: 13.32 +/- 0.69
+[2017-06-01 02:01:38,518] Recording...
+[2017-06-01 02:01:38,518] Making new env: Breakout-v0
+[2017-06-01 02:01:38,554] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.10.34523.video000000.
+mp4
+[2017-06-01 02:01:40,272] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+2750701/5000000 [===============>..............] - ETA: 17352s - Loss: 0.2025 - Avg R: 11.6400 - Max R: 27.0000 - eps: 0.1000 - Grads: 8.2125 - Max Q: 7.2177 - lr: 0.00
+01
+[2017-06-01 02:33:05,731] Evaluating...
+[2017-06-01 02:33:46,388] Average reward: 13.66 +/- 0.60
+[2017-06-01 02:33:46,389] Recording...
+[2017-06-01 02:33:46,389] Making new env: Breakout-v0
+[2017-06-01 02:33:46,425] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.11.34523.video000000.
+mp4
+[2017-06-01 02:33:48,335] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+3000901/5000000 [=================>............] - ETA: 15430s - Loss: 0.2317 - Avg R: 12.3800 - Max R: 26.0000 - eps: 0.1000 - Grads: 7.7013 - Max Q: 7.2210 - lr: 0.00
+01
+[2017-06-01 03:05:27,418] Evaluating...
+[2017-06-01 03:06:05,635] Average reward: 11.92 +/- 0.61
+[2017-06-01 03:06:05,635] Recording...
+[2017-06-01 03:06:05,635] Making new env: Breakout-v0
+[2017-06-01 03:06:05,670] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.12.34523.video000000.
+mp4
+[2017-06-01 03:06:06,784] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+3251001/5000000 [==================>...........] - ETA: 13493s - Loss: 0.0664 - Avg R: 13.5800 - Max R: 26.0000 - eps: 0.1000 - Grads: 2.9384 - Max Q: 6.5338 - lr: 0.00
+01
+[2017-06-01 03:37:26,918] Evaluating...
+[2017-06-01 03:38:09,855] Average reward: 14.52 +/- 0.74
+[2017-06-01 03:38:09,855] Recording...
+[2017-06-01 03:38:09,855] Making new env: Breakout-v0
+[2017-06-01 03:38:09,892] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.13.34523.video000000.
+mp4
+[2017-06-01 03:38:11,976] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+3501101/5000000 [====================>.........] - ETA: 11734s - Loss: 0.6363 - Avg R: 13.2200 - Max R: 32.0000 - eps: 0.1000 - Grads: 16.4890 - Max Q: 7.3393 - lr: 0.0
+001B0.0001
+[2017-06-01 04:16:12,677] Evaluating...
+[2017-06-01 04:16:53,445] Average reward: 13.68 +/- 0.82
+[2017-06-01 04:16:53,446] Recording...
+[2017-06-01 04:16:53,446] Making new env: Breakout-v0
+[2017-06-01 04:16:53,482] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.14.34523.video000000.
+mp4
+[2017-06-01 04:16:55,273] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+3751301/5000000 [=====================>........] - ETA: 9765s - Loss: 0.1878 - Avg R: 13.0800 - Max R: 26.0000 - eps: 0.1000 - Grads: 6.8788 - Max Q: 6.9109 - lr: 0.000
+1
+[2017-06-01 04:48:21,975] Evaluating...
+[2017-06-01 04:49:02,938] Average reward: 13.94 +/- 0.74
+[2017-06-01 04:49:02,939] Recording...
+[2017-06-01 04:49:02,939] Making new env: Breakout-v0
+[2017-06-01 04:49:02,988] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.15.34523.video000000.
+mp4
+[2017-06-01 04:49:05,181] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+4001401/5000000 [=======================>......] - ETA: 7802s - Loss: 0.1384 - Avg R: 12.2800 - Max R: 29.0000 - eps: 0.1000 - Grads: 6.3627 - Max Q: 7.1609 - lr: 0.000
+1
+[2017-06-01 05:20:29,680] Evaluating...
+[2017-06-01 05:21:13,685] Average reward: 15.34 +/- 0.83
+[2017-06-01 05:21:13,686] Recording...
+[2017-06-01 05:21:13,686] Making new env: Breakout-v0
+[2017-06-01 05:21:13,722] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.16.34523.video000000.
+mp4
+[2017-06-01 05:21:16,163] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+4251601/5000000 [========================>.....] - ETA: 5843s - Loss: 0.0647 - Avg R: 12.6000 - Max R: 28.0000 - eps: 0.1000 - Grads: 2.7452 - Max Q: 6.7979 - lr: 0.000
+1
+[2017-06-01 05:52:38,367] Evaluating...
+[2017-06-01 05:53:22,491] Average reward: 15.78 +/- 0.78
+[2017-06-01 05:53:22,491] Recording...
+[2017-06-01 05:53:22,491] Making new env: Breakout-v0
+[2017-06-01 05:53:22,530] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.17.34523.video000000.
+mp4
+[2017-06-01 05:53:24,221] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+4501701/5000000 [==========================>...] - ETA: 3887s - Loss: 0.0445 - Avg R: 12.8400 - Max R: 25.0000 - eps: 0.1000 - Grads: 2.2348 - Max Q: 7.2725 - lr: 0.000
+1
+[2017-06-01 06:24:46,314] Evaluating...
+[2017-06-01 06:25:29,699] Average reward: 14.56 +/- 0.66
+[2017-06-01 06:25:29,699] Recording...
+[2017-06-01 06:25:29,700] Making new env: Breakout-v0
+[2017-06-01 06:25:29,736] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.18.34523.video000000.
+mp4
+[2017-06-01 06:25:31,756] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+4751801/5000000 [===========================>..] - ETA: 1935s - Loss: 0.1831 - Avg R: 13.4000 - Max R: 31.0000 - eps: 0.1000 - Grads: 8.0932 - Max Q: 7.3845 - lr: 0.000
+1
+[2017-06-01 06:57:07,474] Evaluating...
+[2017-06-01 06:57:54,385] Average reward: 17.48 +/- 0.84
+[2017-06-01 06:57:54,386] Recording...
+[2017-06-01 06:57:54,386] Making new env: Breakout-v0
+[2017-06-01 06:57:54,423] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.19.34523.video000000.
+mp4
+[2017-06-01 06:57:56,227] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
+5000001/5000000 [==============================] - 38985s - Loss: 0.2343 - Avg R: 11.3800 - Max R: 36.0000 - eps: 0.1000 - Grads: 5.7685 - Max Q: 7.7881 - lr: 0.0001
+[2017-06-01 07:29:09,268] - Training done.
+[2017-06-01 07:29:11,710] Evaluating...
+[2017-06-01 07:29:53,467] Average reward: 14.74 +/- 0.77
+[2017-06-01 07:29:54,549] Making new env: Breakout-v0
+[2017-06-01 07:29:54,587] Starting new video recorder writing to /home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/monitor/openaigym.video.20.34523.video000000.
+mp4
+[2017-06-01 07:29:55,984] Finished writing results. You can upload them to the scoreboard via gym.upload('/home/yolandaw/yangxin/DQN-cs234/results/Breakout_vanilla/moni
+tor')
