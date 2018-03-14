@@ -102,7 +102,7 @@ def processTime(timeList):
 #############
 if __name__ == "__main__":
     # parameters needs to be changed based on different environment
-    folder = 'Breakout'
+    folder = 'IceHockey'
     word1 = 'mean_score:'
     word2 = 'Average reward:'
     rewardIndex = 4
