@@ -43,13 +43,13 @@ def my_plot(proTimeList, scoreList, fileNameList, folder):
 ##############
 def parser(folder, word1, word2, rewardIndex, timeIndex):
     # create score and name lists
-    os.chdir('C:\Users\kongl\Documents\Git\CS234Project\exp_results')
+    os.chdir('C:\Users\kongl\Documents\Git\CS234Project\plot')
     allFiles = os.listdir(folder)
     timeList =[]
     scoreList = []
     fileNameList = []
     for fileName in allFiles:
-        os.chdir('C:\Users\kongl\Documents\Git\CS234Project\exp_results' + '\\' + folder)
+        os.chdir('C:\Users\kongl\Documents\Git\CS234Project\plot' + '\\' + folder)
         file = open(fileName, 'r')
         score = []
         time = []
@@ -97,6 +97,17 @@ def processTime(timeList):
         proTimeList.append(proTime)
     return proTimeList
 
+################################################
+# calculate average time for each epoch update #
+################################################
+def calAveTime(proTimeArray):
+    for i in range(proTimeArray.shape[0]):
+        oneTime = proTimeArray[i]
+        timeDiff = []
+        for j in range(len(oneTime) - 1):
+            timeDiff.append(oneTime[j + 1] - oneTime[j])
+        print np.average(timeDiff) * 60
+
 #############
 # main code #
 #############
@@ -110,5 +121,9 @@ if __name__ == "__main__":
     timeList, scoreList, fileNameList = parser(folder, word1, word2, rewardIndex, timeIndex)
     proTimeList = processTime(timeList)
     my_plot(proTimeList, scoreList, fileNameList, folder)
+    proTimeArray = np.array(proTimeList)
+    # calculate average time
+    calAveTime(proTimeArray)
+
 
 
