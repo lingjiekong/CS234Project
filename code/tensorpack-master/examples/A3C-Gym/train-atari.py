@@ -78,6 +78,7 @@ class Model(ModelDesc):
                 InputDesc(tf.float32, (None,), 'action_prob'),
                 ]
 
+
     def _get_NN_prediction(self, image):
         image = tf.cast(image, tf.float32) / 255.0
         with argscope(Conv2D, nl=tf.nn.relu):
@@ -88,7 +89,6 @@ class Model(ModelDesc):
             l = Conv2D('conv2', l, out_channel=64, kernel_shape=4)
             l = MaxPooling('pool2', l, 2)
             l = Conv2D('conv3', l, out_channel=64, kernel_shape=3)
-
         l = FullyConnected('fc0', l, 512, nl=tf.identity)
         l = PReLU('prelu', l)
         logits = FullyConnected('fc-pi', l, out_dim=NUM_ACTIONS, nl=tf.identity)    # unnormalized policy

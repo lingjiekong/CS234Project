@@ -43,7 +43,7 @@ LOCAL_TIME_MAX = 5
 STEPS_PER_EPOCH = 6000
 EVAL_EPISODE = 50
 BATCH_SIZE = 128
-PREDICT_BATCH_SIZE = 15     # batch for efficient forward
+PREDICT_BATCH_SIZE = 15
 SIMULATOR_PROC = 50
 PREDICTOR_THREAD_PER_GPU = 3
 PREDICTOR_THREAD = None
@@ -76,12 +76,30 @@ class Model(ModelDesc):
                 InputDesc(tf.int64, (None,), 'action'),
                 InputDesc(tf.float32, (None,), 'futurereward1'),
                 InputDesc(tf.float32, (None,), 'futurereward2'),
-                InputDesc(tf.float32, (None,), 'updateweight1'),
-                InputDesc(tf.float32, (None,), 'updateweight2'),
+                InputDesc(tf.float32, (None,), 'weight1'),
+                InputDesc(tf.float32, (None,), 'weight2'),
                 InputDesc(tf.float32, (None,), 'action_prob'),
                 ]
 
-    def _get_NN_prediction(self, image):
+    def double_A3C(self, image):
+        image = tf.cast(image, tf.float32) / 255.0
+        with argscope(Conv2D, nl=tf.nn.relu):
+            h = Conv2D('conv0', image, out_channel=32, kernel_shape=5)
+            h = MaxPooling('pool0', h, 2)
+            h = Conv2D('conv1', h, out_channel=32, kernel_shape=5)
+            h = MaxPooling('pool1', h, 2)
+            h = Conv2D('conv2', h, out_channel=64, kernel_shape=4)
+            h = MaxPooling('pool2', h, 2)
+            h = Conv2D('conv3', h, out_channel=64, kernel_shape=3)
+        h = FullyConnected('fc0', h, 512, nl=tf.identity)
+        h = PReLU('prelu', h)
+        logits = FullyConnected('fc-pi', h, out_dim=NUM_ACTIONS, nl=tf.identity)
+        value1 = FullyConnected('fc-v1', h, 1, nl=tf.identity) 
+        value2 = FullyConnected('fc-v2', h, 1, nl=tf.identity)
+        return logits, value1, value2
+
+
+    def less_shared_double_A3C(self, image):
         image = tf.cast(image, tf.float32) / 255.0
         with argscope(Conv2D, nl=tf.nn.relu):
             h = Conv2D('conv0', image, out_channel=32, kernel_shape=5)
@@ -92,50 +110,77 @@ class Model(ModelDesc):
             h = MaxPooling('pool2', h, 2)
             h1 = Conv2D('conv3-1', h, out_channel=64, kernel_shape=3)
             h2 = Conv2D('conv3-2', h, out_channel=64, kernel_shape=3)
-
-
         h1 = FullyConnected('fc0-1', h1, 512, nl=tf.identity)
         h1 = PReLU('prelu-1', h1)
         h2 = FullyConnected('fc0-2', h2, 512, nl=tf.identity)
         h2 = PReLU('prelu-2', h2)
         l = tf.concat([h1, h2], 1)
-        logits = FullyConnected('fc-pi', l, out_dim=NUM_ACTIONS, nl=tf.identity)    # unnormalized policy
-        value1 = FullyConnected('fc-v_1', h1, 1, nl=tf.identity) 
-        value2 = FullyConnected('fc-v_2', h2, 1, nl=tf.identity)
+        logits = FullyConnected('fc-pi', l, out_dim=NUM_ACTIONS, nl=tf.identity)
+        value1 = FullyConnected('fc-v1', h1, 1, nl=tf.identity) 
+        value2 = FullyConnected('fc-v2', h2, 1, nl=tf.identity)
+        return logits, value1, value2
+
+
+    def no_shared_double_A3C(self, image):
+        image = tf.cast(image, tf.float32) / 255.0
+        with argscope(Conv2D, nl=tf.nn.relu):
+            h = Conv2D('conv0', image, out_channel=32, kernel_shape=5)
+            h = MaxPooling('pool0', h, 2)
+            h1 = Conv2D('conv1-1', h, out_channel=32, kernel_shape=5)
+            h2 = Conv2D('conv1-2', h, out_channel=32, kernel_shape=5)
+            h1 = MaxPooling('pool1-1', h1, 2)
+            h2 = MaxPooling('pool1-2', h2, 2)
+            h1 = Conv2D('conv2-1', h1, out_channel=64, kernel_shape=4)
+            h2 = Conv2D('conv2-2', h2, out_channel=64, kernel_shape=4)
+            h1 = MaxPooling('pool2-1', h1, 2)
+            h2 = MaxPooling('pool2-2', h2, 2)
+            h1 = Conv2D('conv3-1', h1, out_channel=64, kernel_shape=3)
+            h2 = Conv2D('conv3-2', h2, out_channel=64, kernel_shape=3)
+        h1 = FullyConnected('fc0-1', h1, 512, nl=tf.identity)
+        h1 = PReLU('prelu-1', h1)
+        h2 = FullyConnected('fc0-2', h2, 512, nl=tf.identity)
+        h2 = PReLU('prelu-2', h2)
+        l = tf.concat([h1, h2], 1)
+        logits = FullyConnected('fc-pi', l, out_dim=NUM_ACTIONS, nl=tf.identity)
+        value1 = FullyConnected('fc-v1', h1, 1, nl=tf.identity) 
+        value2 = FullyConnected('fc-v2', h2, 1, nl=tf.identity)
+        return logits, value1, value2
+
+    # modify to run double, less shared, or no shared A3C
+    def _get_NN_prediction(self, image):
+        logits, value1, value2 = double_A3C(self, image):
+        # logits, value1, value2 = less_shared_double_A3C(self, image)
+        # logits, value1, value2 = no_shared_double_A3C(self, iamge)
         return logits, value1, value2
 
     def _build_graph(self, inputs):
-        state, action, futurereward1, futurereward2, updateweight1, updateweight2, action_prob = inputs
+        state, action, futurereward1, futurereward2, weight1, weight2, action_prob = inputs
         logits, value1, value2 = self._get_NN_prediction(state)
-        value1 = tf.squeeze(value1, [1], name='pred_value_1')  # (B,)
-        value2 = tf.squeeze(value2, [1], name='pred_value_2')  # (B,)
+        value1 = tf.squeeze(value1, [1], name='pred_value1')  # (B,)
+        value2 = tf.squeeze(value2, [1], name='pred_value2')  # (B,)
         policy = tf.nn.softmax(logits, name='policy')
         is_training = get_current_tower_context().is_training
         if not is_training:
             return
         log_probs = tf.log(policy + 1e-6)
-
         log_pi_a_given_s = tf.reduce_sum(
             log_probs * tf.one_hot(action, NUM_ACTIONS), 1)
-        advantage1 = tf.subtract(tf.stop_gradient(value1), futurereward1, name='advantage_1')
-        advantage2 = tf.subtract(tf.stop_gradient(value2), futurereward2, name='advantage_2')
-
+        advantage1 = tf.subtract(tf.stop_gradient(value1), futurereward1, name='advantage1')
+        advantage2 = tf.subtract(tf.stop_gradient(value2), futurereward2, name='advantage2')
         pi_a_given_s = tf.reduce_sum(policy * tf.one_hot(action, NUM_ACTIONS), 1)  # (B,)
         importance = tf.stop_gradient(tf.clip_by_value(pi_a_given_s / (action_prob + 1e-8), 0, 10))
-
-        policy_loss1 = tf.reduce_sum(log_pi_a_given_s * advantage1 * importance * updateweight1, name='policy_loss_1')
-        policy_loss2 = tf.reduce_sum(log_pi_a_given_s * advantage2 * importance * updateweight2, name='policy_loss_2')
+        policy_loss1 = tf.reduce_sum(log_pi_a_given_s * advantage1 * importance * weight1, name='policy_loss1')
+        policy_loss2 = tf.reduce_sum(log_pi_a_given_s * advantage2 * importance * weight2, name='policy_loss2')
         policy_loss = tf.add(policy_loss1, policy_loss2, name='policy_loss')
         xentropy_loss = tf.reduce_sum(policy * log_probs, name='xentropy_loss')
-        value_loss1 = tf.nn.l2_loss((value1 - futurereward1) * tf.sqrt(updateweight1), name='value_loss_1')
-        value_loss2 = tf.nn.l2_loss((value2 - futurereward2) * tf.sqrt(updateweight2), name='value_loss_2')
+        value_loss1 = tf.nn.l2_loss((value1 - futurereward1) * weight1, name='value_loss1')
+        value_loss2 = tf.nn.l2_loss((value2 - futurereward2) * weight2, name='value_loss2')
         value_loss = tf.add(value_loss1, value_loss2, name='value_loss')
-
-        pred_reward1 = tf.reduce_mean(value1, name='predict_reward_1')
-        pred_reward2 = tf.reduce_mean(value2, name='predict_reward_2')
+        pred_reward1 = tf.reduce_mean(value1, name='predict_reward1')
+        pred_reward2 = tf.reduce_mean(value2, name='predict_reward2')
         pred_reward_avg = tf.add(pred_reward1 * 0.5, pred_reward2 * 0.5, name='predict_reward_avg')
-        advantage1 = symbf.rms(advantage1, name='rms_advantage_1')
-        advantage2 = symbf.rms(advantage2, name='rms_advantage_2')
+        advantage1 = symbf.rms(advantage1, name='rms_advantage1')
+        advantage2 = symbf.rms(advantage2, name='rms_advantage2')
         advantage_avg = symbf.rms(advantage1 * 0.5 + advantage2 * 0.5, name='rms_advantage_avg')
         entropy_beta = tf.get_variable('entropy_beta', shape=[],
                                        initializer=tf.constant_initializer(0.01), trainable=False)
@@ -169,7 +214,7 @@ class MySimulatorMaster(SimulatorMaster, Callback):
         # create predictors on the available predictor GPUs.
         nr_gpu = len(self._gpus)
         predictors = [self.trainer.get_predictor(
-            ['state'], ['policy', 'pred_value_1', 'pred_value_2'],
+            ['state'], ['policy', 'pred_value1', 'pred_value2'],
             self._gpus[k % nr_gpu])
             for k in range(PREDICTOR_THREAD)]
         self.async_predictor = MultiThreadAsyncPredictor(
@@ -189,13 +234,13 @@ class MySimulatorMaster(SimulatorMaster, Callback):
             action = np.random.choice(len(distrib), p=distrib)
             rand_num = np.random.rand()
             if rand_num < 0.5:
-                updateweight1, updateweight2 = 1.0, 0.0
+                weight1, weight2 = 1.0, 0.0
             else:
-                updateweight2, updateweight1 = 1.0, 0.0
+                weight2, weight1 = 1.0, 0.0
             client = self.clients[ident]
             client.memory.append(TransitionExperience(
                 state, action, reward=None, value1=value1, value2=value2,
-                updateweight1=updateweight1, updateweight2=updateweight2, prob=distrib[action]))
+                weight1=weight1, weight2=weight2, prob=distrib[action]))
             self.send_queue.put([ident, dumps(action)])
         self.async_predictor.put_task([state], cb)
 
@@ -222,7 +267,7 @@ class MySimulatorMaster(SimulatorMaster, Callback):
         for idx, k in enumerate(mem):
             R1 = np.clip(k.reward, -1, 1) + GAMMA * R1
             R2 = np.clip(k.reward, -1, 1) + GAMMA * R2
-            self.queue.put([k.state, k.action, R1, R2, k.updateweight1, k.updateweight2, k.prob])
+            self.queue.put([k.state, k.action, R1, R2, k.weight1, k.weight2, k.prob])
 
         if not isOver:
             client.memory = [last]

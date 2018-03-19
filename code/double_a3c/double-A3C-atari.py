@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File: train-atari.py
+# File: double-A3C-atari.py
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
-
+# update: Lingjie Kong and Ruixuan Ren
 import numpy as np
 import os
 import uuid
